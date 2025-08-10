@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Dispositivo Móvel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .device-selector {
+            margin-bottom: 20px;
+        }
+        select {
+            padding: 8px 12px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+        .device-container {
+            display: inline-block;
+            background-color: #333;
+            border-radius: 20px;
+            padding: 15px 10px 40px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .device-frame {
+            border: 1px solid #666;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: white;
+        }
+        iframe {
+            border: none;
+            display: block;
+        }
+        .device-info {
+            margin-top: 20px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Dispositivo Móvel</h1>
+        
+        <div class="device-selector">
+            <label for="device-select">Selecione o dispositivo: </label>
+            <select id="device-select">
+                <option value="iphone-se">iPhone SE (375×667)</option>
+                <option value="iphone-xr">iPhone XR/11 (414×896)</option>
+                <option value="iphone-12">iPhone 12 Pro (390×844)</option>
+                <option value="pixel-5">Google Pixel 5 (393×851)</option>
+                <option value="samsung-s20">Samsung Galaxy S20 (360×800)</option>
+                <option value="ipad">iPad (768×1024)</option>
+            </select>
+        </div>
+        
+        <div class="device-container">
+            <div class="device-frame">
+                <iframe id="mobile-frame" src="http://127.0.0.1:8001/mobile-test.html" width="375" height="667" allow="fullscreen" allowfullscreen="true" sandbox="allow-same-origin allow-scripts allow-popups allow-forms"></iframe>
+            </div>
+        </div>
+        
+        <div class="device-info">
+            <p>Dimensões: <span id="dimensions">375 × 667</span></p>
+        </div>
+    </div>
+
+    <script>
+        const deviceSelect = document.getElementById('device-select');
+        const mobileFrame = document.getElementById('mobile-frame');
+        const dimensionsDisplay = document.getElementById('dimensions');
+        
+        const deviceDimensions = {
+            'iphone-se': { width: 375, height: 667 },
+            'iphone-xr': { width: 414, height: 896 },
+            'iphone-12': { width: 390, height: 844 },
+            'pixel-5': { width: 393, height: 851 },
+            'samsung-s20': { width: 360, height: 800 },
+            'ipad': { width: 768, height: 1024 }
+        };
+        
+        deviceSelect.addEventListener('change', function() {
+            const device = this.value;
+            const dimensions = deviceDimensions[device];
+            
+            mobileFrame.width = dimensions.width;
+            mobileFrame.height = dimensions.height;
+            dimensionsDisplay.textContent = `${dimensions.width} × ${dimensions.height}`;
+        });
+    </script>
+</body>
+</html>

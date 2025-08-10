@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Carolina Resende - Liderança Inteligente</title>
+    <meta name="description" content="Entre em contato com Carolina Resende para transformar sua liderança. Agende uma consulta ou envie uma mensagem para iniciar sua jornada de desenvolvimento integral.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-profundo': '#49515A',
+                        'coral-queimado': '#0E5BA0',
+                        'azul-secundario': '#52AACC',
+                        'fundo': '#D4E3E8',
+                        'texto': '#49515A',
+                        'texto-suave': '#777D83'
+                    },
+                    fontFamily: {
+                        'atyp': ['Atyp', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(14, 91, 160, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(14, 91, 160, 0.6)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS for fonts -->
+    <style>
+        @font-face {
+            font-family: 'AtypDisplay';
+            src: url('assets/fonts/AtypDisplay-Regular.woff2') format('woff2'),
+                 url('assets/fonts/AtypDisplay-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url('assets/fonts/Poppins-Regular.woff2') format('woff2'),
+                 url('assets/fonts/Poppins-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        .font-atyp { font-family: 'AtypDisplay', serif; }
+        .font-poppins { font-family: 'Poppins', 'sans-serif'; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0E5BA0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #49515A; }
+        
+        /* Selection color */
+        ::selection { background: #0E5BA0; color: white; }
+        
+        /* Form styling */
+        .form-input:focus {
+            outline: none;
+            border-color: #0E5BA0;
+            box-shadow: 0 0 0 3px rgba(14, 91, 160, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-fundo text-texto overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-azul-profundo z-50 flex items-center justify-center transition-all duration-500">
+        <div class="w-16 h-16 border-4 border-coral-queimado border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    
+    <!-- Header Fixo com Backdrop -->
+    <header id="header" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 backdrop-blur-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Logo Carolina Resende" class="h-6 w-auto sm:h-7 lg:h-8">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex space-x-6 2xl:space-x-8">
+                    <a href="index.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="sobre.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Sobre
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="servicos.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Serviços
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="para-quem.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Para Quem
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="contato.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Contato
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- Tablet Navigation (simplified) -->
+                <nav class="hidden lg:flex xl:hidden space-x-4">
+                    <a href="index.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Home</a>
+                    <a href="sobre.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Sobre</a>
+                    <a href="servicos.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Serviços</a>
+                    <a href="para-quem.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Para Quem</a>
+                    <a href="contato.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Contato</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20">
+                    <i class="fas fa-bars text-lg sm:text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-azul-profundo/95 backdrop-blur-md transform -translate-y-full opacity-0 transition-all duration-500 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <nav class="py-4 sm:py-6 px-4 sm:px-6 space-y-2 sm:space-y-4">
+                <a href="index.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Home</a>
+                <a href="sobre.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Sobre</a>
+                <a href="servicos.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Serviços</a>
+                <a href="para-quem.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Para Quem</a>
+                <a href="contato.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-18 lg:pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/skyscraperwindows.png');"></div>
+        
+        <!-- Overlay Gradiente -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 sm:mb-8 leading-tight animate-slide-up opacity-0" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                Entre em Contato
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 leading-relaxed animate-slide-up opacity-0 px-2 sm:px-0" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                Estamos prontos para iniciar uma conversa sobre como a Liderança Inteligente pode transformar você e sua organização. Preencha o formulário abaixo para agendar uma consulta inicial ou enviar sua mensagem.
+            </p>
+        </div>
+    </section>
+
+    <!-- Formulário de Contato Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Formulário -->
+                <div class="lg:col-span-2">
+                    <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mb-4 sm:mb-6"></div>
+                    <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-6 sm:mb-8">Formulário de Contato</h2>
+                    
+                    <form id="contact-form" class="space-y-6 sm:space-y-8">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-azul-profundo font-semibold mb-2 text-sm sm:text-base">Nome completo *</label>
+                                <input type="text" id="name" name="name" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-coral-queimado focus:ring-2 focus:ring-coral-queimado/20 transition-all duration-300 form-input text-base">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-azul-profundo font-semibold mb-2 text-sm sm:text-base">E-mail *</label>
+                                <input type="email" id="email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-coral-queimado focus:ring-2 focus:ring-coral-queimado/20 transition-all duration-300 form-input text-base">
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="phone" class="block text-azul-profundo font-semibold mb-2 text-sm sm:text-base">Telefone (opcional)</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-coral-queimado focus:ring-2 focus:ring-coral-queimado/20 transition-all duration-300 form-input text-base">
+                            </div>
+                            <div>
+                                <label for="company" class="block text-azul-profundo font-semibold mb-2 text-sm sm:text-base">Empresa/Organização (opcional)</label>
+                                <input type="text" id="company" name="company" 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-coral-queimado focus:ring-2 focus:ring-coral-queimado/20 transition-all duration-300 form-input text-base">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-azul-profundo font-semibold mb-2 text-sm sm:text-base">Assunto *</label>
+                            <select id="subject" name="subject" required 
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-coral-queimado focus:ring-2 focus:ring-coral-queimado/20 transition-all duration-300 form-input text-base">
+                                <option value="">Selecione uma opção</option>
+                                <option value="formacao">Programas de Formação</option>
+                                <option value="mentoria">Mentoria e Coaching</option>
+                                <option value="consultoria">Consultoria Organizacional</option>
+                                <option value="outros">Outros</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-azul-profundo font-semibold mb-2 text-sm sm:text-base">Mensagem *</label>
+                            <textarea id="message" name="message" required rows="6" 
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-coral-queimado focus:ring-2 focus:ring-coral-queimado/20 transition-all duration-300 form-input text-base resize-vertical"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full sm:w-auto bg-coral-queimado hover:bg-azul-profundo text-white font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl hover:shadow-coral-queimado/50">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Informações de Contato -->
+                <div>
+                    <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mb-4 sm:mb-6"></div>
+                    <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-6 sm:mb-8">Informações de Contato</h2>
+                    
+                    <div class="space-y-6 sm:space-y-8">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-coral-queimado/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-envelope text-coral-queimado text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-azul-profundo mb-1">E-mail</h3>
+                                <a href="mailto:carolinaresende@crlideranca.com.br" class="text-coral-queimado hover:text-azul-profundo transition-colors duration-300 text-base">
+                                    carolinaresende@crlideranca.com.br
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-coral-queimado/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-clock text-coral-queimado text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-azul-profundo mb-1">Horário de Atendimento</h3>
+                                <p class="text-texto-suave text-base">Segunda a Sexta, 9h às 18h</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-coral-queimado/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-map-marker-alt text-coral-queimado text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-azul-profundo mb-1">Atendimento</h3>
+                                <p class="text-texto-suave text-base">Online e presencial (São Paulo/SP)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 rounded-2xl p-6 border border-coral-queimado/20">
+                            <h3 class="font-atyp text-lg text-azul-profundo mb-3">Resposta Rápida</h3>
+                            <p class="text-texto-suave text-sm">Comprometemo-nos a responder todas as mensagens em até 24 horas úteis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-fundo relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-gradient-to-tl from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
+                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">Perguntas Frequentes</h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-coral-queimado/20">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-semibold text-azul-profundo text-base sm:text-lg">Como funciona o processo de consulta inicial?</h3>
+                            <i class="fas fa-chevron-down text-coral-queimado transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-texto-suave text-sm sm:text-base leading-relaxed">A consulta inicial é uma conversa gratuita de 30 minutos onde discutimos seus desafios, objetivos e como podemos ajudá-lo. Após essa conversa, apresentamos uma proposta personalizada para seu caso.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-coral-queimado/20">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-semibold text-azul-profundo text-base sm:text-lg">Quanto tempo dura um programa de formação?</h3>
+                            <i class="fas fa-chevron-down text-coral-queimado transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-texto-suave text-sm sm:text-base leading-relaxed">Os programas variam de 3 a 12 meses, dependendo do seu perfil e objetivos. Cada programa é personalizado e inclui acompanhamento contínuo e avaliação de resultados.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-coral-queimado/20">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-semibold text-azul-profundo text-base sm:text-lg">Vocês atendem empresas de qualquer tamanho?</h3>
+                            <i class="fas fa-chevron-down text-coral-queimado transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-texto-suave text-sm sm:text-base leading-relaxed">Sim! Trabalhamos com empresas de todos os portes, desde startups até grandes corporações. Nossas soluções são adaptadas para cada contexto organizacional.</p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left hover:bg-gray-50 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-coral-queimado/20">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-semibold text-azul-profundo text-base sm:text-lg">Os programas são online ou presenciais?</h3>
+                            <i class="fas fa-chevron-down text-coral-queimado transition-transform duration-300"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4">
+                        <p class="text-texto-suave text-sm sm:text-base leading-relaxed">Oferecemos ambas as modalidades. Nossos programas online são interativos e engajantes, enquanto os presenciais permitem uma experiência mais imersiva. Você pode escolher o que melhor se adapta à sua rotina.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-azul-profundo to-coral-queimado relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-white/5 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-6 sm:mb-8 px-2 sm:px-0">Pronto para transformar sua liderança?</h2>
+            <p class="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto px-2 sm:px-0">Não espere mais para começar sua jornada de desenvolvimento. Entre em contato hoje mesmo e descubra como podemos ajudá-lo a se tornar um líder mais eficaz e inspirador.</p>
+            <a href="#contact-form" class="inline-block bg-white text-coral-queimado hover:bg-gray-100 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl w-full sm:w-auto max-w-sm sm:max-w-none">
+                Começar agora
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-profundo text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div>
+                    <h4 class="font-atyp text-xl sm:text-2xl mb-3 sm:mb-4">Carolina Resende</h4>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">Liderança Inteligente: transformando líderes por meio de desenvolvimento integral.</p>
+                </div>
+                <div>
+                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Home</a></li>
+                        <li><a href="sobre.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Sobre</a></li>
+                        <li><a href="servicos.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Serviços</a></li>
+                        <li><a href="para-quem.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Para Quem</a></li>
+                        <li><a href="contato.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:carolinaresende@crlideranca.com.br" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">carolinaresende@crlideranca.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">&copy; 2025 Carolina Resende - Liderança Inteligente. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-coral-queimado hover:bg-azul-profundo text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 50) {
+                header.classList.add('bg-azul-profundo/95', 'shadow-2xl');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('bg-azul-profundo/95', 'shadow-2xl');
+                header.classList.add('bg-transparent');
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+        window.addEventListener('resize', updateHeader);
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100');
+            mobileMenuBtn.classList.add('text-coral-queimado');
+            document.body.style.overflow = 'hidden';
+            menuOpen = true;
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+            mobileMenuBtn.classList.remove('text-coral-queimado');
+            document.body.style.overflow = '';
+            menuOpen = false;
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (menuOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu when clicking on menu items
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                if (content.classList.contains('hidden')) {
+                    content.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    content.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Form Submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                alert('Por favor, preencha todos os campos obrigatórios.');
+                return;
+            }
+            
+            // Show success message (in a real implementation, you'd send this to a server)
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            this.reset();
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carolina Resende | Liderança Inteligente</title>
+    <meta name="description" content="Carolina Resende - Transformamos líderes por meio de desenvolvimento integral, unindo saúde mental, gestão inteligente e impacto sustentável.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-profundo': '#49515A',
+                        'coral-queimado': '#0E5BA0',
+                        'azul-secundario': '#52AACC',
+                        'fundo': '#D4E3E8',
+                        'texto': '#49515A',
+                        'texto-suave': '#777D83'
+                    },
+                    fontFamily: {
+                        'atyp': ['Atyp', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(14, 91, 160, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(14, 91, 160, 0.6)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS for fonts -->
+    <style>
+        @font-face {
+            font-family: 'AtypDisplay';
+            src: url('assets/fonts/AtypDisplay-Regular.woff2') format('woff2'),
+                 url('assets/fonts/AtypDisplay-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url('assets/fonts/Poppins-Regular.woff2') format('woff2'),
+                 url('assets/fonts/Poppins-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        .font-atyp { font-family: 'AtypDisplay', serif; }
+        .font-poppins { font-family: 'Poppins', sans-serif; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0E5BA0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #49515A; }
+        
+        /* Selection color */
+        ::selection { background: #0E5BA0; color: white; }
+
+        /* Mobile-specific optimizations */
+        @media (max-width: 768px) {
+            .card {
+                margin-bottom: 1rem;
+            }
+            
+            .section-title h2 {
+                line-height: 1.2;
+            }
+            
+            /* Improve touch targets */
+            button, a {
+                min-height: 44px;
+                min-width: 44px;
+            }
+        }
+
+        /* Tablet optimizations */
+        @media (min-width: 769px) and (max-width: 1023px) {
+            .grid {
+                gap: 1.5rem;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .card {
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        /* Landscape mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .hero-section {
+                min-height: 100vh;
+                padding-top: 5rem;
+                padding-bottom: 3rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="font-poppins bg-fundo text-texto overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-azul-profundo z-50 flex items-center justify-center transition-all duration-500">
+        <div class="w-16 h-16 border-4 border-coral-queimado border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    
+    <!-- Header Fixo com Backdrop -->
+    <header id="header" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 backdrop-blur-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Logo Carolina Resende" class="h-6 w-auto sm:h-7 lg:h-8">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex space-x-6 2xl:space-x-8">
+                    <a href="index.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="sobre.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Sobre
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="servicos.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Serviços
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="para-quem.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Para Quem
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="contato.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Contato
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- Tablet Navigation (simplified) -->
+                <nav class="hidden lg:flex xl:hidden space-x-4">
+                    <a href="index.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Home</a>
+                    <a href="sobre.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Sobre</a>
+                    <a href="servicos.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Serviços</a>
+                    <a href="para-quem.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Para Quem</a>
+                    <a href="contato.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Contato</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20">
+                    <i class="fas fa-bars text-lg sm:text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-azul-profundo/95 backdrop-blur-md transform -translate-y-full opacity-0 transition-all duration-500 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <nav class="py-4 sm:py-6 px-4 sm:px-6 space-y-2 sm:space-y-4">
+                <a href="index.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Home</a>
+                <a href="sobre.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Sobre</a>
+                <a href="servicos.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Serviços</a>
+                <a href="para-quem.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Para Quem</a>
+                <a href="contato.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section com Parallax -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-18 lg:pt-20">
+        <!-- Background Image com Parallax -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-110" style="background-image: url('assets/skyscraperwindows.png');" id="hero-bg"></div>
+        
+        <!-- Overlay Gradiente -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 sm:mb-8 leading-tight animate-slide-up opacity-0" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                Liderança Inteligente
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 leading-relaxed animate-slide-up opacity-0 px-2 sm:px-0" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                Transformamos líderes por meio de desenvolvimento integral, unindo saúde mental, gestão inteligente e impacto sustentável, sempre com amor, propósito e inovação.
+            </p>
+            <a href="sobre.html" class="inline-block bg-coral-queimado hover:bg-azul-profundo text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl hover:shadow-coral-queimado/50 animate-slide-up opacity-0 w-full sm:w-auto max-w-sm sm:max-w-none" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
+                Descubra como a Liderança Inteligente pode transformar você e sua organização
+            </a>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <div class="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-2 sm:h-3 bg-white rounded-full mt-1 sm:mt-2 animate-pulse"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diferenciais Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tl from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
+                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">O que nos torna únicos?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-queimado to-azul-secundario transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="text-coral-queimado text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4">Abordagem Integral</h3>
+                    <p class="text-texto-suave leading-relaxed text-sm sm:text-base">Integramos saúde mental, bem-estar, gestão de pessoas e planejamento estratégico de forma única e personalizada.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-queimado to-azul-secundario transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="text-coral-queimado text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4">Resultados Mensuráveis</h3>
+                    <p class="text-texto-suave leading-relaxed text-sm sm:text-base">Nossa tecnologia social permite monitoramento em tempo real e avaliação contínua dos resultados.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden sm:col-span-2 lg:col-span-1">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-queimado to-azul-secundario transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                    <div class="text-coral-queimado text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4">Humanização</h3>
+                    <p class="text-texto-suave leading-relaxed text-sm sm:text-base">Combinamos alta tecnologia com atendimento personalizado e acolhedor, focado no desenvolvimento integral.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-12">
+                <a href="sobre.html" class="inline-block border-2 border-coral-queimado text-coral-queimado hover:bg-coral-queimado hover:text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
+                    Conheça nossa metodologia
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-fundo relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-gradient-to-bl from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-gradient-to-tr from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
+                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">Como podemos ajudar?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Programas de Formação em Liderança Integral</h3>
+                    <p class="text-texto-suave leading-relaxed mb-4 sm:mb-6 relative z-10 text-sm sm:text-base">Trilhas personalizadas com módulos sobre autoconhecimento, inteligência emocional, gestão estratégica e liderança sustentável.</p>
+                    <a href="servicos.html#formacao" class="inline-block bg-coral-queimado text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-azul-profundo transition-colors duration-300 relative z-10 text-sm sm:text-base">
+                        Saiba mais
+                    </a>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Mentoria Executiva e Coaching Estratégico</h3>
+                    <p class="text-texto-suave leading-relaxed mb-4 sm:mb-6 relative z-10 text-sm sm:text-base">Acompanhamento individualizado para líderes que desejam potencializar suas carreiras e impacto.</p>
+                    <a href="servicos.html#mentoria" class="inline-block bg-coral-queimado text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-azul-profundo transition-colors duration-300 relative z-10 text-sm sm:text-base">
+                        Saiba mais
+                    </a>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden sm:col-span-2 lg:col-span-1">
+                    <div class="absolute inset-0 bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Consultoria Organizacional</h3>
+                    <p class="text-texto-suave leading-relaxed mb-4 sm:mb-6 relative z-10 text-sm sm:text-base">Implementação de estratégias para fortalecer cultura corporativa humanizada e de alta performance.</p>
+                    <a href="servicos.html#consultoria" class="inline-block bg-coral-queimado text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-azul-profundo transition-colors duration-300 relative z-10 text-sm sm:text-base">
+                        Saiba mais
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-12">
+                <a href="servicos.html" class="inline-block bg-coral-queimado hover:bg-azul-profundo text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl hover:shadow-coral-queimado/50 w-full sm:w-auto max-w-sm sm:max-w-none">
+                    Explore nossos serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Para Quem Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-tl from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 sm:mb-16">
+                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
+                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">Para quem transformamos a liderança?</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Card 1 -->
+                <div class="group bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-bl from-coral-queimado/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Líderes e Gestores</h3>
+                    <p class="text-texto-suave leading-relaxed relative z-10 text-sm sm:text-base">Profissionais em posições de liderança que buscam fortalecer competências técnicas, emocionais e estratégicas.</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="group bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-bl from-azul-secundario/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Profissionais de Alta Performance</h3>
+                    <p class="text-texto-suave leading-relaxed relative z-10 text-sm sm:text-base">Indivíduos que buscam aprimorar autoconhecimento, bem-estar e impacto no ambiente de trabalho.</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="group bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden sm:col-span-2 lg:col-span-1">
+                    <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-bl from-coral-queimado/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Empresas e Organizações</h3>
+                    <p class="text-texto-suave leading-relaxed relative z-10 text-sm sm:text-base">Organizações que investem no desenvolvimento de líderes eficazes, sustentáveis e com propósito.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 sm:mt-12">
+                <a href="para-quem.html" class="inline-block border-2 border-coral-queimado text-coral-queimado hover:bg-coral-queimado hover:text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto max-w-sm sm:max-w-none">
+                    Veja se nossos serviços são para você
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-azul-profundo to-coral-queimado relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-white/5 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-white/5 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-6 sm:mb-8 px-2 sm:px-0">Pronto para iniciar sua jornada de transformação em liderança?</h2>
+            <p class="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto px-2 sm:px-0">Entre em contato para uma conversa inicial sobre seus desafios e objetivos.</p>
+            <a href="contato.html" class="inline-block bg-white text-coral-queimado hover:bg-gray-10 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl w-full sm:w-auto max-w-sm sm:max-w-none">
+                Agende uma consulta
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-profundo text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div>
+                    <h4 class="font-atyp text-xl sm:text-2xl mb-3 sm:mb-4">Carolina Resende</h4>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">Liderança Inteligente: transformando líderes por meio de desenvolvimento integral.</p>
+                </div>
+                <div>
+                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Home</a></li>
+                        <li><a href="sobre.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Sobre</a></li>
+                        <li><a href="servicos.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Serviços</a></li>
+                        <li><a href="para-quem.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Para Quem</a></li>
+                        <li><a href="contato.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:carolinaresende@crlideranca.com.br" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">carolinaresende@crlideranca.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">&copy; 2025 Carolina Resende - Liderança Inteligente. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-coral-queimado hover:bg-azul-profundo text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+
+        // Header Scroll Effect with Responsive Behavior
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScrollY = window.scrollY;
+            
+            // Add background and shadow on scroll
+            if (currentScrollY > 50) {
+                header.classList.add('bg-azul-profundo/95', 'shadow-2xl');
+                header.classList.remove('bg-transparent');
+                
+                // Add subtle scale effect on mobile
+                if (window.innerWidth < 1024) {
+                    header.style.transform = 'scale(0.98)';
+                }
+            } else {
+                header.classList.remove('bg-azul-profundo/95', 'shadow-2xl');
+                header.classList.add('bg-transparent');
+                header.style.transform = 'scale(1)';
+            }
+            
+            // Hide/show header on mobile scroll (optional)
+            if (window.innerWidth < 1024 && currentScrollY > 100) {
+                if (currentScrollY > lastScrollY) {
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+        window.addEventListener('resize', updateHeader);
+
+        // Enhanced Mobile Menu Toggle with Responsive Features
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOpen) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on window resize (if switching to desktop)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && menuOpen) {
+                closeMobileMenu();
+            }
+        });
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100');
+            mobileMenuBtn.classList.add('text-coral-queimado');
+            document.body.style.overflow = 'hidden';
+            menuOpen = true;
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+            mobileMenuBtn.classList.remove('text-coral-queimado');
+            document.body.style.overflow = '';
+            menuOpen = false;
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (menuOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu when clicking on menu items
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Parallax Effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.getElementById('hero-bg');
+            heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Enhanced Intersection Observer for Animations with Responsive Behavior
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                    
+                    // Add staggered animation for grid items on mobile
+                    if (window.innerWidth < 768 && entry.target.parentElement && entry.target.parentElement.classList.contains('grid')) {
+                        const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100;
+                        entry.target.style.animationDelay = `${delay}ms`;
+                    }
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card, .section-title, .grid > div').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Touch-friendly interactions for mobile
+        if ('ontouchstart' in window) {
+            // Add touch feedback to interactive elements
+            document.querySelectorAll('button, a, .card').forEach(el => {
+                el.addEventListener('touchstart', () => {
+                    el.style.transform = 'scale(0.98)';
+                });
+                
+                el.addEventListener('touchend', () => {
+                    el.style.transform = '';
+                });
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Performance optimization for mobile
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                // Recalculate positions and sizes after resize
+                if (window.innerWidth < 1024) {
+                    // Mobile-specific adjustments
+                    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+                }
+            }, 250);
+        });
+    </script>
+</body>
+</html>

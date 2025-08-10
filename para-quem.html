@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Quem | Carolina Resende - Liderança Inteligente</title>
+    <meta name="description" content="Descubra para quem são direcionados os serviços de Carolina Resende: líderes, profissionais de alta performance e organizações comprometidas com o desenvolvimento integral.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-profundo': '#49515A',
+                        'coral-queimado': '#0E5BA0',
+                        'azul-secundario': '#52AACC',
+                        'fundo': '#D4E3E8',
+                        'texto': '#49515A',
+                        'texto-suave': '#777D83'
+                    },
+                    fontFamily: {
+                        'atyp': ['Atyp', 'serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(14, 91, 160, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(14, 91, 160, 0.6)' }
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom CSS for fonts -->
+    <style>
+        @font-face {
+            font-family: 'AtypDisplay';
+            src: url('assets/fonts/AtypDisplay-Regular.woff2') format('woff2'),
+                 url('assets/fonts/AtypDisplay-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Poppins';
+            src: url('assets/fonts/Poppins-Regular.woff2') format('woff2'),
+                 url('assets/fonts/Poppins-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        .font-atyp { font-family: 'AtypDisplay', serif; }
+        .font-poppins { font-family: 'Poppins', 'sans-serif'; }
+        
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #0E5BA0; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #49515A; }
+        
+        /* Selection color */
+        ::selection { background: #0E5BA0; color: white; }
+    </style>
+</head>
+
+<body class="font-poppins bg-fundo text-texto overflow-x-hidden">
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-azul-profundo z-50 flex items-center justify-center transition-all duration-500">
+        <div class="w-16 h-16 border-4 border-coral-queimado border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    
+    <!-- Header Fixo com Backdrop -->
+    <header id="header" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 backdrop-blur-md">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-18 lg:h-20">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="assets/logo.png" alt="Logo Carolina Resende" class="h-6 w-auto sm:h-7 lg:h-8">
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <nav class="hidden xl:flex space-x-6 2xl:space-x-8">
+                    <a href="index.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Home
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="sobre.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Sobre
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="servicos.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Serviços
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="para-quem.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Para Quem
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="contato.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
+                        Contato
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </nav>
+                
+                <!-- Tablet Navigation (simplified) -->
+                <nav class="hidden lg:flex xl:hidden space-x-4">
+                    <a href="index.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Home</a>
+                    <a href="sobre.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Sobre</a>
+                    <a href="servicos.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Serviços</a>
+                    <a href="para-quem.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Para Quem</a>
+                    <a href="contato.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Contato</a>
+                </nav>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20">
+                    <i class="fas fa-bars text-lg sm:text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-azul-profundo/95 backdrop-blur-md transform -translate-y-full opacity-0 transition-all duration-500 max-h-[calc(100vh-4rem)] overflow-y-auto">
+            <nav class="py-4 sm:py-6 px-4 sm:px-6 space-y-2 sm:space-y-4">
+                <a href="index.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Home</a>
+                <a href="sobre.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Sobre</a>
+                <a href="servicos.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Serviços</a>
+                <a href="para-quem.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Para Quem</a>
+                <a href="contato.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-18 lg:pt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/skyscraperwindows.png');"></div>
+        
+        <!-- Overlay Gradiente -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40"></div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 sm:mb-8 leading-tight animate-slide-up opacity-0" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                Para Quem Transformamos a Liderança?
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 leading-relaxed animate-slide-up opacity-0 px-2 sm:px-0" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                A Liderança Inteligente é para aqueles que buscam mais do que gerenciar – buscam inspirar, crescer e deixar um legado positivo. Nossos programas e consultorias são desenhados para atender às necessidades específicas de líderes, profissionais e organizações comprometidos com o desenvolvimento integral e sustentável.
+            </p>
+        </div>
+    </section>
+
+    <!-- Líderes e Gestores Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mb-4 sm:mb-6"></div>
+                    <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-6 sm:mb-8">Líderes e Gestores: Fortalecendo sua Jornada</h2>
+                    
+                    <div class="space-y-6 sm:space-y-8">
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Perfil</h3>
+                            <p class="text-texto-suave leading-relaxed text-base sm:text-lg">Profissionais em posições de liderança (todos os níveis) que buscam fortalecer competências técnicas, emocionais e estratégicas.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Dores e Desafios Comuns</h3>
+                            <ul class="space-y-2 sm:space-y-3 text-texto-suave">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Gerenciar altos níveis de estresse e pressão</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Manter equilíbrio entre vida pessoal e profissional</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Engajar equipes de forma sustentável</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Desenvolver comunicação assertiva e empática</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Resolver conflitos e tomar decisões estratégicas complexas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Lidar com a síndrome do impostor ou sentimentos de inadequação</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Como Ajudamos</h3>
+                            <p class="text-texto-suave leading-relaxed text-base sm:text-lg">Oferecemos ferramentas e acompanhamento para desenvolver autoconhecimento, inteligência emocional, resiliência, habilidades de gestão estratégica e comunicação eficaz, promovendo um estilo de liderança mais humano e impactante.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="relative group">
+                        <img src="assets/lideres.jpg" alt="Líderes e Gestores" class="w-full h-auto rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profissionais de Alta Performance Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-fundo relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute bottom-0 right-0 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-gradient-to-tl from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div>
+                    <div class="relative group">
+                        <img src="assets/profissionais.jpg" alt="Profissionais de Alta Performance" class="w-full h-auto rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mb-4 sm:mb-6"></div>
+                    <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-6 sm:mb-8">Profissionais de Alta Performance: Elevando seu Potencial</h2>
+                    
+                    <div class="space-y-6 sm:space-y-8">
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Perfil</h3>
+                            <p class="text-texto-suave leading-relaxed text-base sm:text-lg">Indivíduos que já se destacam em suas áreas, mas buscam aprimorar autoconhecimento, bem-estar, propósito e impacto no ambiente de trabalho. Profissionais em transição de carreira ou buscando maior alinhamento.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Dores e Desafios Comuns</h3>
+                            <ul class="space-y-2 sm:space-y-3 text-texto-suave">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Buscar maior clareza de propósito e alinhamento com valores</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Otimizar o equilíbrio entre performance e bem-estar</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Desenvolver uma mentalidade inovadora e resiliente</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Navegar em ambientes complexos e competitivos</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Como Ajudamos</h3>
+                            <p class="text-texto-suave leading-relaxed text-base sm:text-lg">Através de mentoria e coaching, ajudamos a definir propósitos claros, desenvolver autoconfiança, melhorar o equilíbrio vida-trabalho e potencializar o impacto individual de forma sustentável.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Empresas e Organizações Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mb-4 sm:mb-6"></div>
+                    <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-6 sm:mb-8">Empresas e Organizações: Construindo Culturas de Liderança</h2>
+                    
+                    <div class="space-y-6 sm:space-y-8">
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Perfil</h3>
+                            <p class="text-texto-suave leading-relaxed text-base sm:text-lg">Organizações que investem no desenvolvimento de líderes eficazes, sustentáveis e com propósito. Empresas comprometidas com a transformação cultural e o crescimento sustentável.</p>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Dores e Desafios Comuns</h3>
+                            <ul class="space-y-2 sm:space-y-3 text-texto-suave">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Alta rotatividade de líderes e profissionais talentosos</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Dificuldade em manter equipes engajadas e produtivas</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Falta de alinhamento entre estratégia e execução</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-coral-queimado mt-1 mr-3 flex-shrink-0"></i>
+                                    <span>Necessidade de adaptação a mudanças rápidas no mercado</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h3 class="font-atyp text-xl sm:text-2xl text-coral-queimado mb-3 sm:mb-4">Como Ajudamos</h3>
+                            <p class="text-texto-suave leading-relaxed text-base sm:text-lg">Implementamos estratégias para fortalecer a cultura corporativa, desenvolver líderes em todos os níveis, melhorar o engajamento das equipes e criar ambientes de trabalho mais saudáveis e produtivos.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2">
+                    <div class="relative group">
+                        <img src="assets/empresas.jpg" alt="Empresas e Organizações" class="w-full h-auto rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-azul-profundo to-coral-queimado relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-white/5 rounded-full blur-3xl"></div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-6 sm:mb-8 px-2 sm:px-0">Identificou-se com algum desses perfis?</h2>
+            <p class="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto px-2 sm:px-0">Entre em contato para uma conversa inicial sobre seus desafios e objetivos. Vamos juntos transformar sua liderança.</p>
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
+                <a href="contato.html" class="inline-block bg-white text-coral-queimado hover:bg-gray-100 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl w-full sm:w-auto max-w-sm sm:max-w-none">
+                    Agende uma consulta
+                </a>
+                <a href="servicos.html" class="inline-block border-2 border-white text-white hover:bg-white hover:text-coral-queimado font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 w-full sm:w-auto max-w-sm sm:max-w-none">
+                    Conheça nossos serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-profundo text-white py-12 sm:py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
+                <div>
+                    <h4 class="font-atyp text-xl sm:text-2xl mb-3 sm:mb-4">Carolina Resende</h4>
+                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">Liderança Inteligente: transformando líderes por meio de desenvolvimento integral.</p>
+                </div>
+                <div>
+                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Home</a></li>
+                        <li><a href="sobre.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Sobre</a></li>
+                        <li><a href="servicos.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Serviços</a></li>
+                        <li><a href="para-quem.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Para Quem</a></li>
+                        <li><a href="contato.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Contato</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Contato</h4>
+                    <ul class="space-y-2">
+                        <li><a href="mailto:carolinaresende@crlideranca.com.br" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">carolinaresende@crlideranca.com.br</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center">
+                <p class="text-gray-400 text-sm sm:text-base">&copy; 2025 Carolina Resende - Liderança Inteligente. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Botão Voltar ao Topo -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-coral-queimado hover:bg-azul-profundo text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Preloader
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateHeader() {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY > 50) {
+                header.classList.add('bg-azul-profundo/95', 'shadow-2xl');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('bg-azul-profundo/95', 'shadow-2xl');
+                header.classList.add('bg-transparent');
+            }
+            
+            lastScrollY = currentScrollY;
+            ticking = false;
+        }
+
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateHeader);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+        window.addEventListener('resize', updateHeader);
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        let menuOpen = false;
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
+            mobileMenu.classList.add('translate-y-0', 'opacity-100');
+            mobileMenuBtn.classList.add('text-coral-queimado');
+            document.body.style.overflow = 'hidden';
+            menuOpen = true;
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('translate-y-0', 'opacity-100');
+            mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+            mobileMenuBtn.classList.remove('text-coral-queimado');
+            document.body.style.overflow = '';
+            menuOpen = false;
+        }
+
+        mobileMenuBtn.addEventListener('click', () => {
+            if (menuOpen) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
+
+        // Close menu when clicking on menu items
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                closeMobileMenu();
+            });
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

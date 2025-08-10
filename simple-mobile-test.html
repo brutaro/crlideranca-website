@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Simples Menu Mobile</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding-top: 60px;
+        }
+        
+        header {
+            background-color: #1a2a3a;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            height: 60px;
+        }
+        
+        .logo {
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 20px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+            padding: 8px 12px;
+            z-index: 1001;
+        }
+        
+        .content {
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                right: -100%;
+                flex-direction: column;
+                background-color: #1a2a3a;
+                width: 100%;
+                height: calc(100vh - 60px);
+                text-align: center;
+                transition: all 0.4s ease;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                z-index: 999;
+                padding-top: 20px;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-item {
+                margin: 0;
+                padding: 15px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            
+            .nav-menu .nav-link {
+                font-size: 18px;
+                display: block;
+                padding: 10px 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">Logo</div>
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Sobre</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Serviços</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Para Quem</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Contato</a></li>
+                </ul>
+                <button class="mobile-menu-toggle" onclick="toggleMenu()">
+                    ☰ Menu
+                </button>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="content">
+        <h1>Teste Simples do Menu Mobile</h1>
+        <p>Esta é uma página de teste simplificada para verificar o funcionamento do menu mobile.</p>
+        <p>Clique no botão "☰ Menu" no canto superior direito para abrir o menu em dispositivos móveis.</p>
+        
+        <div id="status" style="margin-top: 20px; padding: 10px; background-color: #f0f0f0; border-radius: 4px;">
+            Status do menu: Fechado
+        </div>
+        
+        <button onclick="toggleMenu()" style="margin-top: 20px; padding: 10px 20px; background-color: #1a2a3a; color: white; border: none; border-radius: 4px; cursor: pointer;">
+            Alternar Menu
+        </button>
+    </div>
+    
+    <script>
+        function toggleMenu() {
+            const navMenu = document.querySelector('.nav-menu');
+            const statusElement = document.getElementById('status');
+            
+            if (navMenu) {
+                navMenu.classList.toggle('active');
+                
+                if (navMenu.classList.contains('active')) {
+                    statusElement.textContent = 'Status do menu: Aberto';
+                    statusElement.style.backgroundColor = '#d4edda';
+                } else {
+                    statusElement.textContent = 'Status do menu: Fechado';
+                    statusElement.style.backgroundColor = '#f0f0f0';
+                }
+            } else {
+                console.error('Menu não encontrado');
+            }
+        }
+    </script>
+</body>
+</html>
