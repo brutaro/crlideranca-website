@@ -142,21 +142,56 @@
                 </nav>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20">
-                    <i class="fas fa-bars text-lg sm:text-xl"></i>
+                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20 group">
+                    <div class="w-6 h-6 flex flex-col justify-center items-center">
+                        <span class="w-5 h-0.5 bg-white transition-all duration-300 group-hover:bg-azul-secundario"></span>
+                        <span class="w-5 h-0.5 bg-white transition-all duration-300 group-hover:bg-azul-secundario mt-1"></span>
+                        <span class="w-5 h-0.5 bg-white transition-all duration-300 group-hover:bg-azul-secundario mt-1"></span>
+                    </div>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden absolute top-full left-0 w-full bg-azul-profundo/95 backdrop-blur-md transform -translate-y-full opacity-0 transition-all duration-500 max-h-[calc(100vh-4rem)] overflow-y-auto">
-            <nav class="py-4 sm:py-6 px-4 sm:px-6 space-y-2 sm:space-y-4">
-                <a href="index.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Home</a>
-                <a href="sobre.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Sobre</a>
-                <a href="servicos.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Serviços</a>
-                <a href="para-quem.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Para Quem</a>
-                <a href="contato.html" class="block text-white font-medium py-3 sm:py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-base sm:text-lg">Contato</a>
-            </nav>
+        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-azul-profundo/95 backdrop-blur-md z-50 transform translate-x-full transition-all duration-300 ease-in-out">
+            <div class="flex flex-col h-full">
+                <!-- Header do Menu Mobile -->
+                <div class="flex items-center justify-between p-4 border-b border-white/10">
+                    <div class="logo">
+                        <img src="assets/logo.png" alt="Logo Carolina Resende" class="h-6 w-auto">
+                    </div>
+                    <button id="close-mobile-menu" class="text-white hover:text-azul-secundario transition-colors duration-300 p-2">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Navegação Mobile -->
+                <nav class="flex-1 py-6 px-4 space-y-2">
+                    <a href="index.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
+                        <i class="fas fa-home mr-3 text-azul-secundario"></i>Home
+                    </a>
+                    <a href="sobre.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
+                        <i class="fas fa-user mr-3 text-azul-secundario"></i>Sobre
+                    </a>
+                    <a href="servicos.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
+                        <i class="fas fa-cogs mr-3 text-azul-secundario"></i>Serviços
+                    </a>
+                    <a href="para-quem.html" class="block text-azul-secundario font-medium py-4 px-4 bg-white/5 rounded-lg text-lg border-l-4 border-azul-secundario">
+                        <i class="fas fa-users mr-3 text-azul-secundario"></i>Para Quem
+                    </a>
+                    <a href="contato.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
+                        <i class="fas fa-envelope mr-3 text-azul-secundario"></i>Contato
+                    </a>
+                </nav>
+                
+                <!-- Footer do Menu Mobile -->
+                <div class="p-4 border-t border-white/10">
+                    <div class="text-center text-white/70 text-sm">
+                        <p>Carolina Resende</p>
+                        <p class="text-azul-secundario">Liderança Inteligente</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -452,22 +487,35 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
         let menuOpen = false;
 
         function openMobileMenu() {
-            mobileMenu.classList.remove('-translate-y-full', 'opacity-0');
-            mobileMenu.classList.add('translate-y-0', 'opacity-100');
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
             mobileMenuBtn.classList.add('text-coral-queimado');
             document.body.style.overflow = 'hidden';
             menuOpen = true;
+            
+            // Animar o botão do menu
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+            spans[1].style.opacity = '0';
+            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
         }
 
         function closeMobileMenu() {
-            mobileMenu.classList.remove('translate-y-0', 'opacity-100');
-            mobileMenu.classList.add('-translate-y-full', 'opacity-0');
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
             mobileMenuBtn.classList.remove('text-coral-queimado');
             document.body.style.overflow = '';
             menuOpen = false;
+            
+            // Resetar animação do botão
+            const spans = mobileMenuBtn.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
         }
 
         mobileMenuBtn.addEventListener('click', () => {
@@ -478,11 +526,37 @@
             }
         });
 
+        // Close menu with close button
+        closeMobileMenuBtn.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+
         // Close menu when clicking on menu items
         mobileMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 closeMobileMenu();
             });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuOpen) {
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu on window resize (if switching to desktop)
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && menuOpen) {
+                closeMobileMenu();
+            }
         });
 
         // Back to Top Button
