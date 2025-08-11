@@ -425,6 +425,22 @@
         </div>
     </footer>
 
+    <!-- Botão Voltar ao Topo -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-coral-queimado hover:bg-azul-profundo text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Botão Flutuante WhatsApp -->
+    <a href="https://wa.me/5531999414771" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="fixed bottom-8 left-8 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center group">
+        <i class="fab fa-whatsapp text-2xl group-hover:rotate-12 transition-transform duration-300"></i>
+        <div class="absolute -top-2 -right-2 bg-coral-queimado text-white text-xs rounded-full w-6 h-6 flex items-center justify-center animate-pulse">
+            <i class="fas fa-comment text-xs"></i>
+        </div>
+    </a>
+
     <!-- Scripts -->
     <script>
         // Preloader
@@ -556,6 +572,22 @@
         // Observe all sections
         document.querySelectorAll('section').forEach(el => {
             observer.observe(el);
+        });
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
