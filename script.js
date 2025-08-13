@@ -325,6 +325,30 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Back to top button functionality
+const backToTopBtn = document.getElementById('back-to-top');
+
+if (backToTopBtn) {
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopBtn.classList.remove('opacity-0', 'invisible');
+            backToTopBtn.classList.add('opacity-100', 'visible');
+        } else {
+            backToTopBtn.classList.add('opacity-0', 'invisible');
+            backToTopBtn.classList.remove('opacity-100', 'visible');
+        }
+    });
+
+    // Smooth scroll to top when clicked
+    backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
 // Console log for debugging
 console.log('CR Liderança - Site carregado com sucesso! 🚀');
 console.log('Versão: 1.0.0');
