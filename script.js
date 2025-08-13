@@ -1,353 +1,331 @@
-// Arquivo JavaScript para funcionalidades interativas do site Carolina Resende
+// Initialize AOS (Animate On Scroll)
+AOS.init({
+    duration: 1000,
+    easing: 'ease-in-out',
+    once: true,
+    offset: 100
+});
 
-// Preloader
-window.addEventListener('load', function() {
-    const preloader = document.querySelector('.preloader');
-    if (preloader) {
+// Header scroll effect
+const header = document.getElementById('header');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > 100) {
+        header.classList.add('header-scrolled');
+    } else {
+        header.classList.remove('header-scrolled');
+    }
+    
+    lastScrollTop = scrollTop;
+});
+
+// Mobile menu toggle
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+let isMobileMenuOpen = false;
+
+mobileMenuBtn.addEventListener('click', () => {
+    isMobileMenuOpen = !isMobileMenuOpen;
+    
+    if (isMobileMenuOpen) {
+        mobileMenu.classList.remove('hidden');
+        mobileMenu.classList.add('mobile-menu-enter');
         setTimeout(() => {
-            preloader.classList.add('hidden');
-            // Adicionar animações após o preloader desaparecer
-            document.querySelectorAll('.animate-fade-in, .animate-slide-left, .animate-slide-right').forEach(el => {
-                el.classList.add('visible');
-            });
-        }, 500);
+            mobileMenu.classList.remove('mobile-menu-enter');
+            mobileMenu.classList.add('mobile-menu-enter-active');
+        }, 10);
+    } else {
+        mobileMenu.classList.remove('mobile-menu-enter-active');
+        mobileMenu.classList.add('mobile-menu-exit');
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('mobile-menu-exit');
+        }, 300);
     }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Funcionalidade de menu mobile com animação suave
-    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const body = document.body;
-    
-    if (mobileMenuToggle && navMenu) {
-        mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            body.classList.toggle('menu-open'); // Impede rolagem quando menu está aberto
-            
-            const icon = mobileMenuToggle.querySelector('i');
-            if (icon) {
-                if (navMenu.classList.contains('active')) {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
-                    mobileMenuToggle.style.transform = 'rotate(90deg)';
-                } else {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                    mobileMenuToggle.style.transform = 'rotate(0deg)';
-                }
-            }
-        });
-    }
-    
-    // Fechar menu ao clicar em um link ou fora do menu
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            if (navMenu.classList.contains('active')) {
-                navMenu.classList.remove('active');
-                body.classList.remove('menu-open');
-                const icon = mobileMenuToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
-                    mobileMenuToggle.style.transform = 'rotate(0deg)';
-                }
-            }
-        });
+// Close mobile menu when clicking on links
+const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        isMobileMenuOpen = false;
+        mobileMenu.classList.remove('mobile-menu-enter-active');
+        mobileMenu.classList.add('mobile-menu-exit');
+        setTimeout(() => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('mobile-menu-exit');
+        }, 300);
     });
-    
-    // Fechar menu ao clicar fora dele
-    document.addEventListener('click', function(event) {
-        if (navMenu.classList.contains('active') && 
-            !navMenu.contains(event.target) && 
-            !mobileMenuToggle.contains(event.target)) {
-            navMenu.classList.remove('active');
-            body.classList.remove('menu-open');
-            const icon = mobileMenuToggle.querySelector('i');
-            if (icon) {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-                mobileMenuToggle.style.transform = 'rotate(0deg)';
-            }
-        }
-    });
-    
-    // Animações avançadas com IntersectionObserver
-    const fadeElements = document.querySelectorAll('.fade-in, .animate-fade-in, .animate-slide-left, .animate-slide-right');
-    
-    if (fadeElements.length > 0) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    
-                    // Adicionar classes de animação para elementos com atraso
-                    const children = entry.target.querySelectorAll('[class*="delay-"]');
-                    children.forEach((child, index) => {
-                        setTimeout(() => {
-                            child.classList.add('visible');
-                        }, 100 * (index + 1));
-                    });
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
         
-        fadeElements.forEach(element => {
-            observer.observe(element);
-        });
-    }
-    
-    // Adicionar efeito de parallax para elementos com classe .parallax
-    const parallaxElements = document.querySelectorAll('.parallax');
-    if (parallaxElements.length > 0) {
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
+        if (target) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = target.offsetTop - headerHeight - 20;
             
-            parallaxElements.forEach(element => {
-                const speed = element.dataset.speed || 0.3;
-                element.style.transform = `translateY(${scrollY * speed}px)`;
-            });
-        });
-    }
-    
-    // Funcionalidade de FAQ (toggle)
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    
-    if (faqQuestions.length > 0) {
-        faqQuestions.forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('.faq-toggle i');
-                
-                // Toggle answer visibility
-                if (answer.style.display === 'block') {
-                    answer.style.display = 'none';
-                    if (icon) {
-                        icon.classList.remove('fa-minus');
-                        icon.classList.add('fa-plus');
-                    }
-                } else {
-                    answer.style.display = 'block';
-                    if (icon) {
-                        icon.classList.remove('fa-plus');
-                        icon.classList.add('fa-minus');
-                    }
-                }
-            });
-        });
-    }
-    
-    // Formulário de contato com validação
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Validação básica
-            let isValid = true;
-            const requiredFields = contactForm.querySelectorAll('[required]');
-            
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    isValid = false;
-                    field.classList.add('error');
-                    
-                    // Adicionar mensagem de erro se não existir
-                    let errorMsg = field.parentNode.querySelector('.error-message');
-                    if (!errorMsg) {
-                        errorMsg = document.createElement('div');
-                        errorMsg.className = 'error-message';
-                        errorMsg.textContent = 'Este campo é obrigatório';
-                        errorMsg.style.color = '#631F27';
-                        errorMsg.style.fontSize = '0.8rem';
-                        errorMsg.style.marginTop = '5px';
-                        field.parentNode.appendChild(errorMsg);
-                    }
-                } else {
-                    field.classList.remove('error');
-                    const errorMsg = field.parentNode.querySelector('.error-message');
-                    if (errorMsg) {
-                        errorMsg.remove();
-                    }
-                }
-            });
-            
-            // Validação de email
-            const emailField = contactForm.querySelector('input[type="email"]');
-            if (emailField && emailField.value.trim()) {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(emailField.value)) {
-                    isValid = false;
-                    emailField.classList.add('error');
-                    
-                    // Adicionar mensagem de erro se não existir
-                    let errorMsg = emailField.parentNode.querySelector('.error-message');
-                    if (!errorMsg) {
-                        errorMsg = document.createElement('div');
-                        errorMsg.className = 'error-message';
-                        errorMsg.textContent = 'Por favor, insira um email válido';
-                        errorMsg.style.color = '#631F27';
-                        errorMsg.style.fontSize = '0.8rem';
-                        errorMsg.style.marginTop = '5px';
-                        emailField.parentNode.appendChild(errorMsg);
-                    } else {
-                        errorMsg.textContent = 'Por favor, insira um email válido';
-                    }
-                }
-            }
-            
-            // Se tudo estiver válido, enviar o formulário (simulação)
-            if (isValid) {
-                // Aqui seria a integração com backend real
-                // Por enquanto, apenas simulamos o envio
-                
-                // Mostrar mensagem de sucesso
-                const successMessage = document.createElement('div');
-                successMessage.className = 'success-message';
-                successMessage.textContent = 'Mensagem enviada com sucesso! Entraremos em contato em breve.';
-                successMessage.style.color = '#631F27';
-                successMessage.style.padding = '15px';
-                successMessage.style.marginTop = '20px';
-                successMessage.style.backgroundColor = '#F3ECE5';
-                successMessage.style.borderRadius = '4px';
-                successMessage.style.textAlign = 'center';
-                
-                // Inserir mensagem após o formulário
-                contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
-                
-                // Resetar formulário
-                contactForm.reset();
-                
-                // Remover mensagem após 5 segundos
-                setTimeout(() => {
-                    successMessage.style.opacity = '0';
-                    successMessage.style.transition = 'opacity 0.5s ease';
-                    setTimeout(() => {
-                        successMessage.remove();
-                    }, 500);
-                }, 5000);
-            }
-        });
-        
-        // Remover mensagens de erro quando o usuário começa a digitar
-        const formFields = contactForm.querySelectorAll('input, textarea, select');
-        formFields.forEach(field => {
-            field.addEventListener('input', function() {
-                field.classList.remove('error');
-                const errorMsg = field.parentNode.querySelector('.error-message');
-                if (errorMsg) {
-                    errorMsg.remove();
-                }
-            });
-        });
-    }
-    
-    // Efeito de scroll suave para links internos
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Header com efeito de scroll aprimorado
-    const header = document.querySelector('header');
-    const backToTopBtn = document.querySelector('.back-to-top');
-    
-    if (header) {
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-        
-        // Função para otimizar o desempenho do scroll
-        function onScroll() {
-            const currentScrollY = window.scrollY;
-            
-            if (currentScrollY > 50) {
-                header.classList.add('scrolled');
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
-                // Manter o padding consistente para evitar mudanças na altura do cabeçalho
-                // header.style.padding = '5px 0';
-            } else {
-                header.classList.remove('scrolled');
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-                // header.style.padding = '';
-            }
-            
-            // Manter o header sempre visível, independente da direção da rolagem
-            header.style.transform = 'translateY(0)';
-            
-            // Mostrar/ocultar botão voltar ao topo
-            if (backToTopBtn) {
-                if (currentScrollY > 300) {
-                    backToTopBtn.classList.add('visible');
-                } else {
-                    backToTopBtn.classList.remove('visible');
-                }
-            }
-            
-            lastScrollY = currentScrollY;
-            ticking = false;
-        }
-        
-        // Otimização de desempenho com requestAnimationFrame
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(onScroll);
-                ticking = true;
-            }
-        });
-    }
-    
-    // Funcionalidade do botão voltar ao topo
-    if (backToTopBtn) {
-        backToTopBtn.addEventListener('click', function() {
             window.scrollTo({
-                top: 0,
+                top: targetPosition,
                 behavior: 'smooth'
             });
-        });
-    }
-    
-    // Substituir placeholders de imagens por imagens reais
-    const logoPlaceholder = document.getElementById('logo-placeholder');
-    if (logoPlaceholder) {
-        logoPlaceholder.src = 'assets/logo.png';
-        logoPlaceholder.style.display = 'block';
-    }
-    
-    // Substituir outros placeholders de imagens
-    const imagePlaceholders = document.querySelectorAll('[id^="image-placeholder"]');
-    const imageMap = {
-        'image-placeholder-1': 'transformacao.jpg',
-        'image-placeholder-2': 'missao.jpg',
-        'image-placeholder-3': 'abordagem.jpg',
-        'formacao': 'formacao.jpg',
-        'mentoria': 'mentoria.jpg',
-        'consultoria': 'consultoria.jpg',
-        'lideres': 'lideres.jpg',
-        'profissionais': 'profissionais.jpg',
-        'empresas': 'empresas.jpg'
-    };
-    
-    imagePlaceholders.forEach(img => {
-        const id = img.id;
-        if (imageMap[id]) {
-            img.src = 'assets/' + imageMap[id];
-            img.style.width = '100%';
-            img.style.height = 'auto';
-            img.style.borderRadius = 'var(--borda-radius)';
-            img.style.boxShadow = 'var(--sombra-suave)';
         }
     });
 });
+
+// Form submission handling
+const contactForm = document.querySelector('form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(this);
+        const submitBtn = this.querySelector('button[type="submit"]');
+        
+        // Show loading state
+        submitBtn.classList.add('loading');
+        submitBtn.textContent = 'Enviando...';
+        
+        // Simulate form submission (replace with actual API call)
+        setTimeout(() => {
+            // Reset form
+            this.reset();
+            
+            // Show success message
+            showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
+            
+            // Reset button
+            submitBtn.classList.remove('loading');
+            submitBtn.textContent = 'Enviar mensagem';
+        }, 2000);
+    });
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existingNotifications = document.querySelectorAll('.notification');
+    existingNotifications.forEach(notification => notification.remove());
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification fixed top-20 right-6 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 translate-x-full`;
+    
+    // Set notification content based on type
+    switch(type) {
+        case 'success':
+            notification.className += ' bg-green-500 text-white';
+            break;
+        case 'error':
+            notification.className += ' bg-red-500 text-white';
+            break;
+        default:
+            notification.className += ' bg-blue-500 text-white';
+    }
+    
+    notification.innerHTML = `
+        <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Add to page
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+    }, 100);
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 5000);
+}
+
+// Intersection Observer for animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+        }
+    });
+}, observerOptions);
+
+// Observe elements for animation
+document.addEventListener('DOMContentLoaded', () => {
+    const animatedElements = document.querySelectorAll('[data-aos]');
+    animatedElements.forEach(el => {
+        observer.observe(el);
+    });
+});
+
+// Parallax effect for hero section
+window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroSection = document.getElementById('inicio');
+    
+    if (heroSection) {
+        const rate = scrolled * -0.5;
+        heroSection.style.transform = `translateY(${rate}px)`;
+    }
+});
+
+// Counter animation for milestones
+function animateCounter(element, target, duration = 2000) {
+    let start = 0;
+    const increment = target / (duration / 16);
+    
+    function updateCounter() {
+        start += increment;
+        if (start < target) {
+            element.textContent = Math.floor(start);
+            requestAnimationFrame(updateCounter);
+        } else {
+            element.textContent = target;
+        }
+    }
+    
+    updateCounter();
+}
+
+// Initialize counters when they come into view
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const counter = entry.target.querySelector('.milestone-number');
+            if (counter && !counter.classList.contains('animated')) {
+                const target = parseInt(counter.textContent);
+                counter.classList.add('animated');
+                animateCounter(counter, target);
+            }
+        }
+    });
+}, { threshold: 0.5 });
+
+// Observe milestone elements
+document.addEventListener('DOMContentLoaded', () => {
+    const milestones = document.querySelectorAll('.milestone');
+    milestones.forEach(milestone => {
+        counterObserver.observe(milestone);
+    });
+});
+
+// Add hover effects to service cards
+document.addEventListener('DOMContentLoaded', () => {
+    const serviceCards = document.querySelectorAll('.service-card');
+    serviceCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+});
+
+// Form validation
+function validateForm(form) {
+    const inputs = form.querySelectorAll('input[required], textarea[required], select[required]');
+    let isValid = true;
+    
+    inputs.forEach(input => {
+        if (!input.value.trim()) {
+            input.classList.add('border-red-500');
+            isValid = false;
+        } else {
+            input.classList.remove('border-red-500');
+        }
+    });
+    
+    return isValid;
+}
+
+// Add form validation to contact form
+if (contactForm) {
+    const inputs = contactForm.querySelectorAll('input, textarea, select');
+    
+    inputs.forEach(input => {
+        input.addEventListener('blur', () => {
+            if (input.hasAttribute('required') && !input.value.trim()) {
+                input.classList.add('border-red-500');
+            } else {
+                input.classList.remove('border-red-500');
+            }
+        });
+        
+        input.addEventListener('input', () => {
+            if (input.value.trim()) {
+                input.classList.remove('border-red-500');
+            }
+        });
+    });
+}
+
+// Performance optimization: Debounce scroll events
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Apply debouncing to scroll events
+const debouncedScrollHandler = debounce(() => {
+    // Handle scroll events here
+}, 16);
+
+window.addEventListener('scroll', debouncedScrollHandler);
+
+// Add loading states to buttons
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('button[type="submit"]');
+    
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (this.form && !validateForm(this.form)) {
+                return;
+            }
+            
+            // Add loading state
+            this.classList.add('loading');
+            const originalText = this.textContent;
+            this.textContent = 'Processando...';
+            
+            // Simulate processing time
+            setTimeout(() => {
+                this.classList.remove('loading');
+                this.textContent = originalText;
+            }, 2000);
+        });
+    });
+});
+
+// Console log for debugging
+console.log('CR Liderança - Site carregado com sucesso! 🚀');
+console.log('Versão: 1.0.0');
+console.log('Tecnologias: HTML5, Tailwind CSS, JavaScript ES6+');

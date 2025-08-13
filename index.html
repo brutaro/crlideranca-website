@@ -3,719 +3,517 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carolina Resende | Liderança Inteligente</title>
-    <meta name="description" content="Carolina Resende - Transformamos líderes por meio de desenvolvimento integral, unindo saúde mental, gestão inteligente e impacto sustentável.">
+    <title>CR Liderança - Desenvolvimento de Lideranças</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'azul-profundo': '#49515A',
-                        'coral-queimado': '#0E5BA0',
-                        'azul-secundario': '#52AACC',
-                        'fundo': '#D4E3E8',
-                        'texto': '#49515A',
-                        'texto-suave': '#777D83'
-                    },
-                    fontFamily: {
-                        'atyp': ['Atyp', 'serif'],
-                        'poppins': ['Poppins', 'sans-serif']
-                    },
-                    animation: {
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate',
-                        'slide-up': 'slideUp 0.8s ease-out forwards',
-                        'fade-in': 'fadeIn 1s ease-out forwards'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-20px)' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(14, 91, 160, 0.3)' },
-                            '100%': { boxShadow: '0 0 30px rgba(14, 91, 160, 0.6)' }
-                        },
-                        slideUp: {
-                            '0%': { opacity: '0', transform: 'translateY(30px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0' },
-                            '100%': { opacity: '1' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     
-
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Bebas+Neue&family=Darker+Grotesque:wght@800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Custom CSS for fonts -->
-    <style>
-        @font-face {
-            font-family: 'AtypDisplay';
-            src: url('assets/fonts/AtypDisplay-Regular.woff2') format('woff2'),
-                 url('assets/fonts/AtypDisplay-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        
-        @font-face {
-            font-family: 'Poppins';
-            src: url('assets/fonts/Poppins-Regular.woff2') format('woff2'),
-                 url('assets/fonts/Poppins-Regular.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        
-        .font-atyp { font-family: 'AtypDisplay', serif; }
-        .font-poppins { font-family: 'Poppins', sans-serif; }
-        
-        /* Smooth scrolling */
-        html { scroll-behavior: smooth; }
-        
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #0E5BA0; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #49515A; }
-        
-        /* Selection color */
-        ::selection { background: #0E5BA0; color: white; }
-
-        /* Mobile-specific optimizations */
-        @media (max-width: 768px) {
-            .card {
-                margin-bottom: 1rem;
-            }
-            
-            .section-title h2 {
-                line-height: 1.2;
-            }
-            
-            /* Improve touch targets */
-            button, a {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-
-        /* Tablet optimizations */
-        @media (min-width: 769px) and (max-width: 1023px) {
-            .grid {
-                gap: 1.5rem;
-            }
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .card {
-                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-            }
-        }
-
-        /* Landscape mobile */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .hero-section {
-                min-height: 100vh;
-                padding-top: 5rem;
-                padding-bottom: 3rem;
-            }
-        }
-    </style>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-
-<body class="font-poppins bg-fundo text-texto overflow-x-hidden">
-    <!-- Preloader -->
-    <div id="preloader" class="fixed inset-0 bg-azul-profundo z-50 flex items-center justify-center transition-all duration-500">
-        <div class="w-16 h-16 border-4 border-coral-queimado border-t-transparent rounded-full animate-spin"></div>
-    </div>
-    
-    <!-- Header Fixo com Backdrop -->
-    <header id="header" class="fixed top-0 left-0 w-full z-40 transition-all duration-500 backdrop-blur-md">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-18 lg:h-20">
-                <!-- Logo -->
-                <div class="logo">
-                    <img src="assets/logo.png" alt="Logo Carolina Resende" class="h-6 w-auto sm:h-7 lg:h-8">
-                </div>
+<body class="font-montserrat">
+    <!-- Header -->
+    <header id="header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                                            <!-- Logo -->
+                            <div class="flex items-center">
+                                <img src="assets/logo.png" alt="Carolina Resende" class="h-8">
+                            </div>
                 
-                <!-- Desktop Navigation -->
-                <nav class="hidden xl:flex space-x-6 2xl:space-x-8">
-                    <a href="index.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
-                        Home
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="sobre.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
-                        Sobre
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="servicos.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
-                        Serviços
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="para-quem.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
-                        Para Quem
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="produtos.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
-                        Produtos
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="contato.html" class="nav-link text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 relative group text-sm 2xl:text-base">
-                        Contato
-                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-azul-secundario transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                </nav>
-                
-                <!-- Tablet Navigation (simplified) -->
-                <nav class="hidden lg:flex xl:hidden space-x-4">
-                    <a href="index.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Home</a>
-                    <a href="sobre.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Sobre</a>
-                    <a href="servicos.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Serviços</a>
-                    <a href="para-quem.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Para Quem</a>
-                    <a href="produtos.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Produtos</a>
-                    <a href="contato.html" class="text-white font-medium uppercase tracking-wider hover:text-azul-secundario transition-all duration-300 text-xs">Contato</a>
-                </nav>
+                                            <!-- Desktop Menu -->
+                            <div class="hidden lg:flex items-center space-x-6">
+                                <a href="#inicio" class="text-white hover:text-blue-300 transition-colors text-sm font-medium">Início</a>
+                                <a href="#oque-fazemos" class="text-white hover:text-blue-300 transition-colors text-sm font-medium">O que fazemos</a>
+                                <a href="#sobre" class="text-white hover:text-blue-300 transition-colors text-sm font-medium">Sobre nós</a>
+                                <a href="#metodologia" class="text-white hover:text-blue-300 transition-colors text-sm font-medium">Metodologia</a>
+                                <a href="#comofunciona" class="text-white hover:text-blue-300 transition-colors text-sm font-medium">Como funciona</a>
+                                <a href="#casesdesucesso" class="text-white hover:text-blue-300 transition-colors text-sm font-medium">Cases de sucesso</a>
+                                <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors text-sm font-medium">Contato</a>
+                            </div>
                 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-white p-2 sm:p-3 rounded-lg hover:bg-white/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white/20 group">
-                    <div class="w-6 h-6 flex flex-col justify-center items-center">
-                        <span class="w-5 h-0.5 bg-white transition-all duration-300 group-hover:bg-azul-secundario"></span>
-                        <span class="w-5 h-0.5 bg-white transition-all duration-300 group-hover:bg-azul-secundario mt-1"></span>
-                        <span class="w-5 h-0.5 bg-white transition-all duration-300 group-hover:bg-azul-secundario mt-1"></span>
-                    </div>
+                <button id="mobile-menu-btn" class="lg:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </div>
-        </div>
+        </nav>
         
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden fixed inset-0 bg-slate-900 z-50 transform translate-x-full transition-all duration-300 ease-in-out">
-            <div class="flex flex-col h-full">
-                <!-- Header do Menu Mobile -->
-                <div class="flex items-center justify-between p-4 border-b border-white/10 bg-slate-900">
-                    <div class="logo">
-                        <img src="assets/logo.png" alt="Logo Carolina Resende" class="h-6 w-auto">
+                            <!-- Mobile Menu -->
+                    <div id="mobile-menu" class="lg:hidden hidden bg-blue-900/95 backdrop-blur-sm">
+                        <div class="container mx-auto px-6 py-4 space-y-4">
+                            <a href="#inicio" class="block text-white hover:text-blue-300 transition-colors text-sm font-medium">Início</a>
+                            <a href="#oque-fazemos" class="block text-white hover:text-blue-300 transition-colors text-sm font-medium">O que fazemos</a>
+                            <a href="#sobre" class="block text-white hover:text-blue-300 transition-colors text-sm font-medium">Sobre nós</a>
+                            <a href="#metodologia" class="block text-white hover:text-blue-300 transition-colors text-sm font-medium">Metodologia</a>
+                            <a href="#comofunciona" class="block text-white hover:text-blue-300 transition-colors text-sm font-medium">Como funciona</a>
+                            <a href="#casesdesucesso" class="block text-white hover:text-blue-300 transition-colors text-sm font-medium">Cases de sucesso</a>
+                            <a href="#contato" class="block bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full transition-colors text-center text-sm font-medium">Contato</a>
+                        </div>
                     </div>
-                    <button id="close-mobile-menu" class="text-white hover:text-azul-secundario transition-colors duration-300 p-2">
-                        <i class="fas fa-times text-xl"></i>
-                    </button>
-                </div>
-                
-                <!-- Navegação Mobile -->
-                <nav class="flex-1 py-6 px-4 space-y-2 bg-slate-900">
-                    <a href="index.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
-                        <i class="fas fa-home mr-3 text-azul-secundario"></i>Home
-                    </a>
-                    <a href="sobre.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
-                        <i class="fas fa-user mr-3 text-azul-secundario"></i>Sobre
-                    </a>
-                    <a href="servicos.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
-                        <i class="fas fa-cogs mr-3 text-azul-secundario"></i>Serviços
-                    </a>
-                    <a href="para-quem.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
-                        <i class="fas fa-users mr-3 text-azul-secundario"></i>Para Quem
-                    </a>
-                    <a href="produtos.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
-                        <i class="fas fa-book mr-3 text-azul-secundario"></i>Produtos
-                    </a>
-                    <a href="contato.html" class="block text-white font-medium py-4 px-4 hover:text-azul-secundario hover:bg-white/5 transition-all duration-300 rounded-lg text-lg border-l-4 border-transparent hover:border-azul-secundario">
-                        <i class="fas fa-envelope mr-3 text-azul-secundario"></i>Contato
-                    </a>
-                </nav>
-                
-                <!-- Footer do Menu Mobile -->
-                <div class="p-4 border-t border-white/10 bg-slate-900">
-                    <div class="text-center text-white/70 text-sm">
-                        <p>Carolina Resende</p>
-                        <p class="text-azul-secundario">Liderança Inteligente</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </header>
 
-    <!-- Hero Section com Parallax -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-18 lg:pt-20">
-        <!-- Background Image com Parallax -->
-        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transform scale-110" style="background-image: url('assets/skyscraperwindows.png');" id="hero-bg"></div>
-        
-        <!-- Overlay Gradiente -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/30 to-black/40"></div>
-        
-        <!-- Content -->
-        <div class="relative z-10 text-center text-white max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl mb-6 sm:mb-8 leading-tight animate-slide-up opacity-0" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-                Liderança Inteligente
-            </h1>
-            <p class="text-lg sm:text-xl md:text-2xl mb-8 sm:mb-12 leading-relaxed animate-slide-up opacity-0 px-2 sm:px-0" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-                Transformamos líderes por meio de desenvolvimento integral, unindo saúde mental, gestão inteligente e impacto sustentável, sempre com amor, propósito e inovação.
-            </p>
-            <a href="sobre.html" class="inline-block bg-coral-queimado hover:bg-azul-profundo text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl hover:shadow-coral-queimado/50 animate-slide-up opacity-0 w-full sm:w-auto max-w-sm sm:max-w-none" style="animation-delay: 0.6s; animation-fill-mode: forwards;">
-                Descubra como a Liderança Inteligente pode transformar você e sua organização
-            </a>
-        </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div class="w-5 h-8 sm:w-6 sm:h-10 border-2 border-white rounded-full flex justify-center">
-                <div class="w-1 h-2 sm:h-3 bg-white rounded-full mt-1 sm:mt-2 animate-pulse"></div>
+    <!-- Main Content -->
+    <main>
+                            <!-- Hero Section -->
+                    <section id="inicio" class="min-h-screen flex items-center justify-center relative overflow-hidden" style="background: linear-gradient(rgba(1, 25, 56, 0.8), rgba(30, 58, 138, 0.8)), url('assets/hero-bg.png') center/cover;">
+                        <div class="absolute inset-0 bg-black/20"></div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute top-20 left-10 w-20 h-20 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+                        <div class="absolute top-40 right-20 w-32 h-32 bg-blue-300/20 rounded-full blur-xl animate-pulse" style="animation-delay: 1s;"></div>
+                        <div class="absolute bottom-40 left-20 w-24 h-24 bg-blue-500/20 rounded-full blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+                        <div class="absolute bottom-20 right-10 w-16 h-16 bg-blue-400/20 rounded-full blur-xl animate-pulse" style="animation-delay: 3s;"></div>
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <div data-aos="fade-up" data-aos-duration="1000">
+                                                    <h1 class="text-5xl lg:text-7xl font-bebas text-white mb-6">
+                                    <em>Liderança</em><br>
+                                    <em>INTELIGENTE</em>
+                                </h1>
+                                <p class="text-xl lg:text-2xl text-blue-200 mb-8 max-w-3xl mx-auto">
+                                    Transformando líderes através de uma abordagem integral e humanizada para resultados extraordinários.
+                                </p>
+                                                    <a href="#contato" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105 inline-block">
+                                    Agende uma consulta
+                                </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Diferenciais Section -->
-    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 bg-gradient-to-br from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-gradient-to-tl from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 sm:mb-16">
-                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
-                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">O que nos torna únicos?</h2>
+                            <!-- O que fazemos Section -->
+                    <section id="oque-fazemos" class="py-20 bg-white relative overflow-hidden">
+                        <!-- Background Elements -->
+                        <div class="absolute top-0 left-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-0 right-0 w-80 h-80 bg-blue-50 rounded-full blur-3xl"></div>
+                        
+                        <!-- Wave Pattern -->
+                        <div class="absolute inset-0 opacity-5">
+                            <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <pattern id="wave-pattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                                        <path d="M0,100 Q50,50 100,100 T200,100" fill="none" stroke="#008bd2" stroke-width="2" opacity="0.3"/>
+                                        <path d="M0,150 Q50,100 100,150 T200,150" fill="none" stroke="#00598e" stroke-width="1" opacity="0.2"/>
+                                        <path d="M0,200 Q50,150 100,200 T200,200" fill="none" stroke="#011938" stroke-width="1" opacity="0.1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#wave-pattern)"/>
+                            </svg>
+                        </div>
+            <div class="container mx-auto px-6">
+                                            <div class="text-center mb-16" data-aos="fade-up">
+                                <h2 class="text-4xl lg:text-6xl font-bebas text-blue-900 mb-6">
+                                    <em>Soluções Integrais</em><br>
+                                    <em>PARA LIDERANÇA</em>
+                                </h2>
+                                <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                                    Nossa abordagem única combina desenvolvimento pessoal, estratégia organizacional e tecnologia inovadora para transformar líderes e organizações.
+                                </p>
+                            </div>
+                
+                                            <!-- Services Grid -->
+                            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="icon-container w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <img src="assets/icons/consultoria.png" alt="Consultoria" class="w-10 h-10 object-contain">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">CONSULTORIA</h3>
+                                    <p class="text-gray-600">Assessoria especializada para desenvolvimento de lideranças organizacionais.</p>
+                                </div>
+                    
+                                                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="icon-container w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <img src="assets/icons/formacao.png" alt="Formação" class="w-10 h-10 object-contain">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">FORMAÇÃO</h3>
+                                    <p class="text-gray-600">Programas de formação e capacitação para líderes em todos os níveis.</p>
+                                </div>
+                    
+                                                    <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="icon-container w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <img src="assets/icons/mentoria.png" alt="Mentoria" class="w-10 h-10 object-contain">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">MENTORIA</h3>
+                                    <p class="text-gray-600">Acompanhamento personalizado para desenvolvimento de carreira e liderança.</p>
+                                </div>
+                                
+                                <div class="service-card bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl text-center hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                                    <div class="icon-container w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                                        <img src="assets/icons/transformacao.png" alt="Transformação" class="w-10 h-10 object-contain">
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">TRANSFORMAÇÃO</h3>
+                                    <p class="text-gray-600">Processos de mudança organizacional e cultural para resultados sustentáveis.</p>
+                                </div>
+                </div>
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Card 1 -->
-                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-queimado to-azul-secundario transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div class="text-coral-queimado text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-brain"></i>
+        </section>
+
+                            <!-- Sobre Section -->
+                    <section id="sobre" class="py-20 relative" style="background: linear-gradient(rgba(30, 58, 138, 0.95), rgba(1, 25, 56, 0.95)), url('assets/process/abordagem.png') center/cover;">
+                        <div class="absolute inset-0 bg-black/40"></div>
+                        
+                        <!-- Floating Elements -->
+                        <div class="absolute top-20 right-20 w-24 h-24 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+                        <div class="absolute bottom-20 left-20 w-32 h-32 bg-blue-300/20 rounded-full blur-xl animate-pulse" style="animation-delay: 1.5s;"></div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <h2 class="text-4xl lg:text-6xl font-bebas text-white mb-8">
+                            <em>Acreditamos na</em><br>
+                            <em class="text-blue-300">TRANSFORMAÇÃO</em>
+                        </h2>
+                        <p class="text-xl text-blue-100 mb-6">
+                            A verdadeira transformação nas empresas começa pelas pessoas — com escuta, empatia, criatividade e compromisso com resultados reais. Esta é a crença fundamental que guia nossa abordagem em cada interação, programa e consultoria.
+                        </p>
+                        <p class="text-xl text-blue-100 mb-8">
+                            Nosso propósito é fazer tudo com verdade e amor, ajudar o ser humano a crescer de forma integral e contribuir para a melhoria do mundo por meio das pessoas.
+                        </p>
                     </div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4">Abordagem Integral</h3>
-                    <p class="text-texto-suave leading-relaxed text-sm sm:text-base">Integramos saúde mental, bem-estar, gestão de pessoas e planejamento estratégico de forma única e personalizada.</p>
-                </div>
-                
-                <!-- Card 2 -->
-                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-queimado to-azul-secundario transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div class="text-coral-queimado text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-chart-line"></i>
+                    
+                    <div class="text-center" data-aos="fade-left">
+                        <img src="assets/carolina-profile.jpg" alt="Carolina Resende - Liderança Inteligente" class="w-80 h-80 rounded-full object-cover mx-auto shadow-2xl">
+                        <h3 class="text-2xl font-bold text-white mt-6">Carolina Resende</h3>
                     </div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4">Resultados Mensuráveis</h3>
-                    <p class="text-texto-suave leading-relaxed text-sm sm:text-base">Nossa tecnologia social permite monitoramento em tempo real e avaliação contínua dos resultados.</p>
                 </div>
+            </div>
+        </section>
+
+                            <!-- Metodologia Section -->
+                    <section id="metodologia" class="py-20 bg-white relative overflow-hidden">
+                        <!-- Background Elements -->
+                        <div class="absolute top-0 right-0 w-72 h-72 bg-blue-50 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-0 left-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl"></div>
+                        
+                        <!-- Wave Pattern -->
+                        <div class="absolute inset-0 opacity-5">
+                            <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <pattern id="wave-pattern-2" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                                        <path d="M0,100 Q50,50 100,100 T200,100" fill="none" stroke="#008bd2" stroke-width="2" opacity="0.3"/>
+                                        <path d="M0,150 Q50,100 100,150 T200,150" fill="none" stroke="#00598e" stroke-width="1" opacity="0.2"/>
+                                        <path d="M0,200 Q50,150 100,200 T200,200" fill="none" stroke="#011938" stroke-width="1" opacity="0.1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#wave-pattern-2)"/>
+                            </svg>
+                        </div>
+            <div class="container mx-auto px-6">
+                                            <div class="text-center mb-16" data-aos="fade-up">
+                                <h2 class="text-4xl lg:text-6xl font-bebas text-blue-900 mb-6">
+                                    <em>Metodologia de</em><br>
+                                    <em>DESENVOLVIMENTO INTEGRAL</em>
+                                </h2>
+                                <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                                    Ao longo da trajetória pessoal e profissional de Carolina Resende, ficou evidente que ocupar um cargo de gestão e exercer uma liderança assertiva exige muito da pessoa, tanto enquanto ser humano, como também do ponto de vista técnico, estratégico e político.
+                                </p>
+                            </div>
                 
-                <!-- Card 3 -->
-                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden sm:col-span-2 lg:col-span-1">
-                    <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-coral-queimado to-azul-secundario transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-                    <div class="text-coral-queimado text-3xl sm:text-4xl mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-heart"></i>
+                <!-- Steps -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">1</div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Senso de propósito</h3>
+                                    <p class="text-gray-600">Crença inquebrantável no potencial humano de co-criar cenários e re-inventar a civilização.</p>
+                                </div>
+                                
+                                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">2</div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Vontade de contribuir</h3>
+                                    <p class="text-gray-600">Decisiva determinação em contribuir para a melhoria do mundo por meio das pessoas.</p>
+                                </div>
+                                
+                                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-white text-3xl font-bold">3</div>
+                                    <h3 class="text-2xl font-bold text-blue-900 mb-4">Inovação constante</h3>
+                                    <p class="text-gray-600">Busca incessante por novas formas de desenvolver e transformar líderes.</p>
+                                </div>
+                </div>
+            </div>
+        </section>
+
+                            <!-- Como Funciona Section -->
+                    <section id="comofunciona" class="py-20 bg-gray-50 relative overflow-hidden">
+                        <!-- Background Elements -->
+                        <div class="absolute top-0 left-0 w-80 h-80 bg-blue-50 rounded-full blur-3xl"></div>
+                        <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl"></div>
+                        
+                        <!-- Wave Pattern -->
+                        <div class="absolute inset-0 opacity-5">
+                            <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <pattern id="wave-pattern-3" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                                        <path d="M0,100 Q50,50 100,100 T200,100" fill="none" stroke="#008bd2" stroke-width="2" opacity="0.3"/>
+                                        <path d="M0,150 Q50,100 100,150 T200,150" fill="none" stroke="#00598e" stroke-width="1" opacity="0.2"/>
+                                        <path d="M0,200 Q50,150 100,200 T200,200" fill="none" stroke="#011938" stroke-width="1" opacity="0.1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#wave-pattern-3)"/>
+                            </svg>
+                        </div>
+            <div class="container mx-auto px-6">
+                                            <div class="text-center mb-16" data-aos="fade-up">
+                                <h2 class="text-4xl lg:text-6xl font-bebas text-blue-900 mb-6">
+                                    <em>Nossa</em><br>
+                                    <em>ABORDAGEM</em>
+                                </h2>
+                                <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                                    É dessa percepção que nasce nossa metodologia de desenvolvimento integral da pessoa adulta que trabalha e deseja se realizar pessoal e profissionalmente exercendo a função de líder da mudança.
+                                </p>
+                            </div>
+                
+                <!-- Process Flow -->
+                <div class="max-w-4xl mx-auto">
+                    <div class="relative">
+                        <!-- Connection Line -->
+                        <div class="absolute top-1/2 left-0 right-0 h-1 bg-blue-200 transform -translate-y-1/2 hidden lg:block"></div>
+                        
+                        <div class="grid lg:grid-cols-4 gap-8">
+                            <div class="text-center relative" data-aos="fade-up" data-aos-delay="100">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-900 mb-2">Diagnóstico</h3>
+                                <p class="text-sm text-gray-600">Análise completa da equipe</p>
+                            </div>
+                            
+                            <div class="text-center relative" data-aos="fade-up" data-aos-delay="200">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-900 mb-2">Planejamento</h3>
+                                <p class="text-sm text-gray-600">Estratégia personalizada</p>
+                            </div>
+                            
+                            <div class="text-center relative" data-aos="fade-up" data-aos-delay="300">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-900 mb-2">Execução</h3>
+                                <p class="text-sm text-gray-600">Implementação do programa</p>
+                            </div>
+                            
+                            <div class="text-center relative" data-aos="fade-up" data-aos-delay="400">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-lg font-bold text-blue-900 mb-2">Resultados</h3>
+                                <p class="text-sm text-gray-600">Avaliação e feedback</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4">Humanização</h3>
-                    <p class="text-texto-suave leading-relaxed text-sm sm:text-base">Combinamos alta tecnologia com atendimento personalizado e acolhedor, focado no desenvolvimento integral.</p>
                 </div>
             </div>
-            
-            <div class="text-center mt-8 sm:mt-12">
-                <a href="sobre.html" class="inline-block border-2 border-coral-queimado text-coral-queimado hover:bg-coral-queimado hover:text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-sm sm:text-base">
-                    Conheça nossa metodologia
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Serviços Section -->
-    <section class="py-12 sm:py-16 lg:py-20 bg-fundo relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 right-0 w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 bg-gradient-to-bl from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 w-40 h-40 sm:w-56 sm:h-56 lg:w-72 lg:h-72 bg-gradient-to-tr from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 sm:mb-16">
-                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
-                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">Como podemos ajudar?</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Card 1 -->
-                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Programas de Formação em Liderança Integral</h3>
-                    <p class="text-texto-suave leading-relaxed mb-4 sm:mb-6 relative z-10 text-sm sm:text-base">Trilhas personalizadas com módulos sobre autoconhecimento, inteligência emocional, gestão estratégica e liderança sustentável.</p>
-                    <a href="servicos.html#formacao" class="inline-block bg-coral-queimado text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-azul-profundo transition-colors duration-300 relative z-10 text-sm sm:text-base">
-                        Saiba mais
-                    </a>
+                            <!-- Cases Section -->
+                    <section id="casesdesucesso" class="py-20 bg-white relative overflow-hidden">
+                        <!-- Wave Pattern -->
+                        <div class="absolute inset-0 opacity-5">
+                            <svg class="w-full h-full" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <pattern id="wave-pattern-4" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                                        <path d="M0,100 Q50,50 100,100 T200,100" fill="none" stroke="#008bd2" stroke-width="2" opacity="0.3"/>
+                                        <path d="M0,150 Q50,100 100,150 T200,150" fill="none" stroke="#00598e" stroke-width="1" opacity="0.2"/>
+                                        <path d="M0,200 Q50,150 100,200 T200,200" fill="none" stroke="#011938" stroke-width="1" opacity="0.1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#wave-pattern-4)"/>
+                            </svg>
+                        </div>
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <h2 class="text-4xl lg:text-6xl font-bebas text-blue-900 mb-6">
+                        <em>Cases de</em><br>
+                        <em>SUCESSO</em>
+                    </h2>
+                    <p class="text-xl text-gray-700 max-w-4xl mx-auto">
+                        Organizações que transformaram as suas lideranças com nossos programas personalizados.
+                    </p>
                 </div>
                 
-                <!-- Card 2 -->
-                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Mentoria Executiva e Coaching Estratégico</h3>
-                    <p class="text-texto-suave leading-relaxed mb-4 sm:mb-6 relative z-10 text-sm sm:text-base">Acompanhamento individualizado para líderes que desejam potencializar suas carreiras e impacto.</p>
-                    <a href="servicos.html#mentoria" class="inline-block bg-coral-queimado text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-azul-profundo transition-colors duration-300 relative z-10 text-sm sm:text-base">
-                        Saiba mais
-                    </a>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="group bg-white rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden sm:col-span-2 lg:col-span-1">
-                    <div class="absolute inset-0 bg-gradient-to-br from-coral-queimado/5 to-azul-secundario/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Consultoria Organizacional</h3>
-                    <p class="text-texto-suave leading-relaxed mb-4 sm:mb-6 relative z-10 text-sm sm:text-base">Implementação de estratégias para fortalecer cultura corporativa humanizada e de alta performance.</p>
-                    <a href="servicos.html#consultoria" class="inline-block bg-coral-queimado text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-azul-profundo transition-colors duration-300 relative z-10 text-sm sm:text-base">
-                        Saiba mais
-                    </a>
+                <!-- Cases Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 text-center">Empresa de Tecnologia</h3>
+                        <p class="text-gray-600 text-center">Transformação completa da cultura de liderança com aumento de 40% na produtividade da equipe.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 text-center">Indústria Manufatureira</h3>
+                        <p class="text-gray-600 text-center">Redução de 60% na rotatividade de funcionários após implementação do programa de liderança.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl hover:shadow-xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-900 mb-4 text-center">Startup em Crescimento</h3>
+                        <p class="text-gray-600 text-center">Escalabilidade da equipe de 10 para 50 colaboradores mantendo a cultura e valores da empresa.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-8 sm:mt-12">
-                <a href="servicos.html" class="inline-block bg-coral-queimado hover:bg-azul-profundo text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl hover:shadow-coral-queimado/50 w-full sm:w-auto max-w-sm sm:max-w-none">
-                    Explore nossos serviços
-                </a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Para Quem Section -->
-    <section class="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-gradient-to-br from-azul-secundario/10 to-transparent rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-gradient-to-tl from-coral-queimado/10 to-transparent rounded-full blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12 sm:mb-16">
-                <div class="w-12 h-1 sm:w-16 sm:h-1 bg-coral-queimado mx-auto mb-4 sm:mb-6"></div>
-                <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-azul-profundo mb-4 sm:mb-6 px-2 sm:px-0">Para quem transformamos a liderança?</h2>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                <!-- Card 1 -->
-                <div class="group bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-bl from-coral-queimado/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Líderes e Gestores</h3>
-                    <p class="text-texto-suave leading-relaxed relative z-10 text-sm sm:text-base">Profissionais em posições de liderança que buscam fortalecer competências técnicas, emocionais e estratégicas.</p>
-                </div>
+                            <!-- Contato Section -->
+                    <section id="contato" class="py-20 relative overflow-hidden" style="background: linear-gradient(rgba(30, 58, 138, 0.95), rgba(1, 25, 56, 0.95)), url('assets/process/metodologia.png') center/cover;">
+                        <!-- Background Elements -->
+                        <div class="absolute top-0 left-0 w-32 h-32 bg-blue-400/20 rounded-full blur-xl animate-pulse"></div>
+                        <div class="absolute top-40 right-0 w-24 h-24 bg-blue-300/20 rounded-full blur-xl animate-pulse" style="animation-delay: 1s;"></div>
+                        <div class="absolute bottom-40 left-0 w-40 h-40 bg-blue-500/20 rounded-full blur-xl animate-pulse" style="animation-delay: 2s;"></div>
+            <div class="container mx-auto px-6">
+                                            <div class="text-center mb-16" data-aos="fade-up">
+                                <h2 class="text-4xl lg:text-6xl font-bebas text-white mb-6">
+                                    <em>Pronto para</em><br>
+                                    <em>CONHECER MAIS?</em>
+                                </h2>
+                                <p class="text-xl text-blue-200 max-w-4xl mx-auto">
+                                    Entre em contato para uma conversa sobre como podemos apoiar seus objetivos de liderança.
+                                </p>
+                            </div>
                 
-                <!-- Card 2 -->
-                <div class="group bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-bl from-azul-secundario/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Profissionais de Alta Performance</h3>
-                    <p class="text-texto-suave leading-relaxed relative z-10 text-sm sm:text-base">Indivíduos que buscam aprimorar autoconhecimento, bem-estar e impacto no ambiente de trabalho.</p>
-                </div>
-                
-                <!-- Card 3 -->
-                <div class="group bg-gradient-to-br from-white to-gray-50 rounded-xl sm:rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500 border border-gray-100 relative overflow-hidden sm:col-span-2 lg:col-span-1">
-                    <div class="absolute top-0 right-0 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-bl from-coral-queimado/20 to-transparent rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
-                    <h3 class="font-atyp text-xl sm:text-2xl text-azul-profundo mb-3 sm:mb-4 relative z-10">Empresas e Organizações</h3>
-                    <p class="text-texto-suave leading-relaxed relative z-10 text-sm sm:text-base">Organizações que investem no desenvolvimento de líderes eficazes, sustentáveis e com propósito.</p>
+                <div class="max-w-4xl mx-auto">
+                    <form class="space-y-6" data-aos="fade-up">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Nome Completo</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block text-white font-semibold mb-2">E-mail Corporativo</label>
+                                <input type="email" class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Telefone</label>
+                                <input type="tel" class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Nome da Empresa</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Seu cargo</label>
+                                <input type="text" class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label class="block text-white font-semibold mb-2">Quantidade de colaboradores</label>
+                                <select class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" required>
+                                    <option value="">Selecione</option>
+                                    <option value="1-50">1 à 50</option>
+                                    <option value="51-100">51 à 100</option>
+                                    <option value="101-300">101 à 300</option>
+                                    <option value="301-500">301 à 500</option>
+                                    <option value="501-1000">501 à 1000</option>
+                                    <option value="1000+">+ de 1000</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-white font-semibold mb-2">Mensagem</label>
+                            <textarea rows="4" class="w-full px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-blue-400 focus:outline-none" placeholder="Conte-nos sobre suas necessidades..."></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                                                                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-12 py-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+                                        Agende uma consulta
+                                    </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-            
-            <div class="text-center mt-8 sm:mt-12">
-                <a href="para-quem.html" class="inline-block border-2 border-coral-queimado text-coral-queimado hover:bg-coral-queimado hover:text-white font-semibold py-3 px-6 sm:px-8 rounded-full transition-all duration-300 transform hover:scale-105 text-sm sm:text-base w-full sm:w-auto max-w-sm sm:max-w-none">
-                    Veja se nossos serviços são para você
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Final Section -->
-    <section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-azul-profundo to-coral-queimado relative overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-48 h-48 sm:w-72 sm:h-72 lg:w-96 lg:h-96 bg-white/5 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 bg-white/5 rounded-full blur-3xl"></div>
-        
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="font-atyp text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-6 sm:mb-8 px-2 sm:px-0">Pronto para iniciar sua jornada de transformação em liderança?</h2>
-            <p class="text-lg sm:text-xl text-white/90 mb-8 sm:mb-12 max-w-3xl mx-auto px-2 sm:px-0">Entre em contato para uma conversa inicial sobre seus desafios e objetivos.</p>
-            <a href="contato.html" class="inline-block bg-white text-coral-queimado hover:bg-gray-10 font-bold py-3 sm:py-4 px-6 sm:px-8 rounded-full text-base sm:text-lg transform hover:scale-105 hover:-translate-y-1 transition-all duration-500 shadow-2xl w-full sm:w-auto max-w-sm sm:max-w-none">
-                Agende uma consulta
-            </a>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-azul-profundo text-white py-12 sm:py-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-6 sm:mb-8">
-                <div>
-                    <h4 class="font-atyp text-xl sm:text-2xl mb-3 sm:mb-4">Carolina Resende</h4>
-                    <p class="text-gray-300 leading-relaxed text-sm sm:text-base">Liderança Inteligente: transformando líderes por meio de desenvolvimento integral.</p>
-                </div>
-                <div>
-                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Links Rápidos</h4>
-                    <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Home</a></li>
-                        <li><a href="sobre.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Sobre</a></li>
-                        <li><a href="servicos.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Serviços</a></li>
-                        <li><a href="para-quem.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Para Quem</a></li>
-                        <li><a href="produtos.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Produtos</a></li>
-                        <li><a href="contato.html" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">Contato</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-atyp text-lg sm:text-xl mb-3 sm:mb-4">Contato</h4>
-                    <ul class="space-y-2">
-                        <li><a href="mailto:carolinaresende@crlideranca.com.br" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm sm:text-base block py-1 hover:bg-white/5 rounded px-2 -ml-2">carolinaresende@crlideranca.com.br</a></li>
-                    </ul>
-                    <div class="flex space-x-4 mt-4">
-                        <a href="https://www.linkedin.com/in/carolina-resende-psi/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="https://www.instagram.com/psi_carolinaresende/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors duration-300">
-                            <i class="fab fa-instagram text-xl"></i>
-                        </a>
-                        <a href="http://lattes.cnpq.br/8264600425128345" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white transition-colors duration-300">
-                            <i class="fas fa-graduation-cap text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 pt-6 sm:pt-8 text-center">
-                <p class="text-gray-400 text-sm sm:text-base">&copy; 2025 Carolina Resende - Liderança Inteligente. Todos os direitos reservados.</p>
-            </div>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+                                                            <div class="flex items-center justify-center space-x-3 mb-6">
+                            <img src="assets/logo.png" alt="Carolina Resende" class="h-8">
+                            <div>
+                                <h3 class="text-xl font-bold">Carolina Resende</h3>
+                                <p class="text-gray-400">Liderança Inteligente</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-400 mb-4">Transformando líderes por meio do desenvolvimento integral</p>
+                                    <div class="flex justify-center space-x-6 mb-6">
+                            <!-- LinkedIn -->
+                            <a href="https://www.linkedin.com/in/carolina-resende-psi/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors group">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.047-1.856-3.047-1.856 0-2.136 1.445-2.136 2.939v5.677H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/psi_carolinaresende/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors group">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- Lattes -->
+                            <a href="http://lattes.cnpq.br/8264600425128345" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors group">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 14l9-5-9-5-9 5 9 5z"/>
+                                    <path d="M12 16l6-3.3v4.8c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2v-4.8L12 16z"/>
+                                    <path d="M12 18l6-3.3v4.8c0 1.1-.9 2-2 2H8c-1.1 0-2-.9-2-2v-4.8L12 18z"/>
+                                </svg>
+                            </a>
+                            
+                            <!-- WhatsApp -->
+                            <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors group">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+                                </svg>
+                            </a>
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="text-center">
+                            <a href="mailto:carolinaresende@crlideranca.com.br" class="text-gray-400 hover:text-white transition-colors text-sm">
+                                carolinaresende@crlideranca.com.br
+                            </a>
+                        </div>
+                                    <p class="text-gray-400 text-sm mt-6">&copy; 2024 Carolina Resende. Todos os direitos reservados.</p>
         </div>
     </footer>
-    
-    <!-- Botão Voltar ao Topo -->
-    <button id="back-to-top" class="fixed bottom-6 left-6 bg-coral-queimado hover:bg-azul-profundo text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 opacity-0 invisible z-50">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- Botão Flutuante WhatsApp -->
-    <a href="https://wa.me/5531999414771" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-12 h-12 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 z-50 flex items-center justify-center group">
-        <i class="fab fa-whatsapp text-xl group-hover:rotate-12 transition-transform duration-300"></i>
-        <div class="absolute -top-1 -right-1 bg-coral-queimado text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
-            <i class="fas fa-comment text-xs"></i>
-        </div>
-    </a>
 
     <!-- Scripts -->
-    <script>
-        // Preloader
-        window.addEventListener('load', () => {
-            const preloader = document.getElementById('preloader');
-            preloader.style.opacity = '0';
-            preloader.style.visibility = 'hidden';
-        });
-
-        // Header Scroll Effect with Responsive Behavior
-        const header = document.getElementById('header');
-        let lastScrollY = window.scrollY;
-        let ticking = false;
-
-        function updateHeader() {
-            const currentScrollY = window.scrollY;
-            
-            // Add background and shadow on scroll
-            if (currentScrollY > 50) {
-                header.classList.add('bg-azul-profundo/95', 'shadow-2xl');
-                header.classList.remove('bg-transparent');
-                
-                // Add subtle scale effect on mobile
-                if (window.innerWidth < 1024) {
-                    header.style.transform = 'scale(0.98)';
-                }
-            } else {
-                header.classList.remove('bg-azul-profundo/95', 'shadow-2xl');
-                header.classList.add('bg-transparent');
-                header.style.transform = 'scale(1)';
-            }
-            
-            // Hide/show header on mobile scroll (optional)
-            if (window.innerWidth < 1024 && currentScrollY > 100) {
-                if (currentScrollY > lastScrollY) {
-                    header.style.transform = 'translateY(-100%)';
-                } else {
-                    header.style.transform = 'translateY(0)';
-                }
-            }
-            
-            lastScrollY = currentScrollY;
-            ticking = false;
-        }
-
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateHeader);
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', requestTick);
-        window.addEventListener('resize', updateHeader);
-
-        // Enhanced Mobile Menu Toggle with Responsive Features
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
-        let menuOpen = false;
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close menu on escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && menuOpen) {
-                closeMobileMenu();
-            }
-        });
-
-        // Close menu on window resize (if switching to desktop)
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 1024 && menuOpen) {
-                closeMobileMenu();
-            }
-        });
-
-        function openMobileMenu() {
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenu.classList.add('translate-x-0');
-            mobileMenuBtn.classList.add('text-coral-queimado');
-            document.body.style.overflow = 'hidden';
-            menuOpen = true;
-            
-            // Animar o botão do menu
-            const spans = mobileMenuBtn.querySelectorAll('span');
-            spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-            spans[1].style.opacity = '0';
-            spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
-        }
-
-        function closeMobileMenu() {
-            mobileMenu.classList.remove('translate-x-0');
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenuBtn.classList.remove('text-coral-queimado');
-            document.body.style.overflow = '';
-            menuOpen = false;
-            
-            // Resetar animação do botão
-            const spans = mobileMenuBtn.querySelectorAll('span');
-            spans[0].style.transform = 'none';
-            spans[1].style.opacity = '1';
-            spans[2].style.transform = 'none';
-        }
-
-        mobileMenuBtn.addEventListener('click', () => {
-            if (menuOpen) {
-                closeMobileMenu();
-            } else {
-                openMobileMenu();
-            }
-        });
-
-        // Close menu with close button
-        closeMobileMenuBtn.addEventListener('click', () => {
-            closeMobileMenu();
-        });
-
-        // Close menu when clicking on menu items
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                closeMobileMenu();
-            });
-        });
-
-        // Parallax Effect
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroBg = document.getElementById('hero-bg');
-            heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
-        });
-
-        // Back to Top Button
-        const backToTopBtn = document.getElementById('back-to-top');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('opacity-0', 'invisible');
-                backToTopBtn.classList.add('opacity-100', 'visible');
-            } else {
-                backToTopBtn.classList.remove('opacity-100', 'visible');
-                backToTopBtn.classList.add('opacity-0', 'invisible');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Enhanced Intersection Observer for Animations with Responsive Behavior
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                    
-                    // Add staggered animation for grid items on mobile
-                    if (window.innerWidth < 768 && entry.target.parentElement && entry.target.parentElement.classList.contains('grid')) {
-                        const delay = Array.from(entry.target.parentElement.children).indexOf(entry.target) * 100;
-                        entry.target.style.animationDelay = `${delay}ms`;
-                    }
-                }
-            });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.card, .section-title, .grid > div').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Touch-friendly interactions for mobile
-        if ('ontouchstart' in window) {
-            // Add touch feedback to interactive elements
-            document.querySelectorAll('button, a, .card').forEach(el => {
-                el.addEventListener('touchstart', () => {
-                    el.style.transform = 'scale(0.98)';
-                });
-                
-                el.addEventListener('touchend', () => {
-                    el.style.transform = '';
-                });
-            });
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerHeight = document.getElementById('header').offsetHeight;
-                    const targetPosition = target.offsetTop - headerHeight - 20;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Performance optimization for mobile
-        let resizeTimeout;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimeout);
-            resizeTimeout = setTimeout(() => {
-                // Recalculate positions and sizes after resize
-                if (window.innerWidth < 1024) {
-                    // Mobile-specific adjustments
-                    document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-                }
-            }, 250);
-        });
-    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
